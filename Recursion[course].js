@@ -28,9 +28,6 @@ function power(base,exponent){
  
 
 // 2.Write a function factorial which accepts a number and returns the factorial of that number. A factorial is the product of an integer and all the integers below it; e.g., factorial four ( 4! ) is equal to 24, because 4 * 3 * 2 * 1 equals 24.  factorial zero (0!) is always 1. 
-
- 
-
 function factorial(n){
   if(n===0) return 1
   
@@ -139,7 +136,7 @@ let isPalindrome=(str) =>{
     //base case
     if(str.length ===1 ) return true;
 
-    if(str[0] === str.slide(-1)){
+    if(str[0] === str.slice(-1)){
       return isPalindrome(str.slice(1,-1))
     }
 

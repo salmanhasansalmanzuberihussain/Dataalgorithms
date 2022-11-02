@@ -1,3 +1,40 @@
+let array=[1,2,[3,4],5,[6,7,8]]
+
+//option 1 the idea is to create a return
+//this is the newArray ={}
+//create a for loop
+//if array.isarray(arr[i])
+//let flat = flatten arr[i]
+//concat flat
+//else newArray.push(arr[i])
+
+function flatten(arr){
+  let newArray =[];
+  for(let i=0; i<arr.length; i++ ){
+    if(Array.isArray(arr[i])){ //gets the value of the function  //Array.isArray() static method determines whether the passed value is an Array.
+      let flat = flatten(arr[i]); //flatten function is inbuilt function in underscore js library
+      newArray = newArray.concat(flat); //concat measures two arrays
+    }else{
+      newArray.push(arr[i]); //then you push the new element
+    }
+  }
+  return newArray;
+}
+
+
+//for each method can be used to replace for loops
+function flat(arr){
+  let flat =[]
+  arr.forEach(el => Array.isArray(el) ? flat = flat.concat(flatten(el)) : flat.push(el))
+  return flat 
+}
+
+
+
+
+
+
+
 //Review all problems in order and try to understand it as much as possible
 function same(arr1,arr2){
   if(arr1.length !== arr2.length) return false
@@ -285,3 +322,11 @@ function averagePair(arr,target){
     }
   }
 }
+
+//productOfArray(arr){
+if(arr.length ===0){
+  return 1;
+}
+
+return arr[0] * productOfArray(arr.slice(1))
+//slices the elements 

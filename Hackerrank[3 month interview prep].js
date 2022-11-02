@@ -1,78 +1,114 @@
-//Maria plays college basketball and wants to go pro. Each season she maintains a record of her play. She tabulates the number of times she breaks her season record for most points and least points in a game. 
-//Points scored in the first game establish her record for the season, and she begins counting from there.
+//traversing through an array is a quick way of finding a new value
+//because if the value is the same you get 0, if the values arent the same give 2,2,2 
 
-//the input is a number
+//Bit manipulation
+//in console.log(2^0)
+//console.log(1^0)
+//console.log(0^0)
+//console.log(1^1)
+//console.log(2^2)
+//console.log(2^2^2)
+//2^3
 
-//An array with the numbers of times she broke her records.
-//Index  is for breaking most points records, and index  is for breaking least points records
+function lonelyinteger(a) {
+  let ans=0
+  for(var i=0; i<a.length; i++) ans^=a[i]
+  return ans
+}
 
-//things to remember dont compare to n[0] compare to n[i]
+//2/5
+//0/2
 
+//There is a collection of input strings and a collection of query strings.
+//For each query string, determine how many times it occurs in the list of input strings. 
+//Return an array of the results
 
-//Given five positive integers, find the minimum and maximum values that can be calculated by summing exactly four of the five integers.
-// Then print the respective minimum and maximum values as a single line of two space-separated long integers.
+//there is a collection of input strings, and collection of query strings.
 
-//summing 4 of the 5 this already lets me know that i have to store the value 
+//basically im comparing two strings 
 
+//i know from memory that i have to compare using a map. Which im not the most comfortable with. 
+//how do i write out a function, why am i writing a map anyway? Because i have to store the let collection
+//for const val of input, collection[val] = collection[val]
+//this stores the value and this stores the input as well 
 
-function collegebasketball(n){
-  let min =0;
-  let max=0;
-  let maxscore= n[0]
-  let minscore = n[0]
+//get back to this question later as i just did this question yesterday 
 
-  for(i=0; i<n.length; i++){
-    if(maxscore>n[0]){
-      maxscore = n[0]
-      max +=1
-    }
+function collection(input,query){
+  let collection ={}
+  for(const val of input){
+    collection[val] = (collection[val] || 0)+1
+    
+return query.map(variable => (collection[variable] || 0))
+     
   }
+}
 
-  for(i=0; i<n.length; i++){
-    if(minscore<n[0]){
-      minscore = n[0]
-      min+=1
-    }
+//when you're doing the if, else if and the else you have to make sure you know what you're comparing to dont just write code and try to figure it out 
+//focus for like ten minutes then write the code 
+function plusMinus(array) {
+  let positive=0;
+  let negative=0;
+  let zero=0;
+  let len = array.length;
+  
+  for(var i=0; i<array.length; i++){
+      if(array[i]>0){
+          positive+=1
+      }else if(array[i]<0){
+          negative +=1
+      }else{
+          zero +=1
+      }
   }
- return [max,min]
+  
+  let pos = positive/len
+  let neg = negative/len
+  let zer = zero/len
+  
+  console.log(pos.toFixed(6))
+  console.log(neg.toFixed(6))
+  console.log(zer.toFixed(6))
 }
 
 
 
+//Given an array of integers and a positive integer k, determine the number of (i,j) pairs where i<j  and ar[ii+[j] is divisible by .
+
+//most definetly need to create a for loop, this way i can loop through the array and determine (i,j)
+
+function divisibleSumPairs(n, k, ar){
+  let sum =0;
+  for(i=0; i<array.length; i++){
+    for(j=i+1; j<array.length; j++){
+        if(i<j && (array[i]+array[j]) %k ===0){
+            sum += array[i]
+        }
+    }
+  }
+  return sum;
+}
+
+//have to increment 1 not the array value or index 
 
 
+//Given a time in -hour AM/PM format, convert it to military (24-hour) time.
+//i cant remember if it was splice or split these are important questions 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function timeConversion(s) {
+  let late = s.includes('PM')
+  if(!late){
+    s = s.splice(':')
+    s=s[0].splt('AM')
+    if(s[0] === '12') s[0] ="00"
+    return s.join(':')
+  }else{
+    s = s.split(':')
+    s=s[0].split('PM')
+    if(s[0] === '12') s[0] = (parseInt(s[0])+12).toString()
+    return s.join(':')
+  }
+}
 
 
 
@@ -220,6 +256,10 @@ function breakingRecords(scores) {
 }
 
 
+
+
+//min,max,maxscore,minscore
+
 //4. Skipped Camal Case cause i can't find a realistic answer anywhere
 
 
@@ -247,7 +287,7 @@ return value;
 }
 
 //another solution to hackerrank but i dont understand how the ar.maap works in this specific situation
-divisibleSumPairs (n, k, ar) => {
+let divisibleSumPairs (n, k, ar) => {
   let count = 0;
   ar = ar.map((value, index, arr) => { 
     for (let i = index + 1; i <= arr.length; i++) {
@@ -282,14 +322,15 @@ divisibleSumPairs (n, k, ar) => {
 //when to use a map or not but im slowly getting comfortable with when to use it or not
 
 function matchingStrings(strings, queries) {
-  let lookup={}
-  
-  for(const string of strings){
-      lookup[string] = (lookup[string] ||0)+1
-  }
+  let storage={}
 
-  return queries.map(variable =>( lookup[variable] || 0 ))
-  //in a map you can name the variable anything can name it string as well
-
+   for(const val of strings){
+      storage[val] = (storage[val] || 0)+1 //i dont understand why i cant store the newval i think theres no reason to 
+   }
+   return queries.map(variable => (storage[variable] || 0))
 }
+
+
+
+
 

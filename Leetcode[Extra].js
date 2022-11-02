@@ -1,5 +1,3 @@
-
-
 //Given an integer x, return true if x is palindrome integer.
 //An integer is a palindrome when it reads the same backward as forward.
 //For example, 121 is a palindrome while 123 is not.
@@ -8,15 +6,10 @@
 
 //the issue is i have to use storage x.toString() to make sure that it is in string value and then set it = to the variable
 //all i have to remember is to make sure that i tostring the value
-
-
-
 function isPalindrome(x){
   let storage = x.toString().split('').reverse('').join('')
   return x.toString() ===storage
 }
-
-
 
     //Given two strings s and t, return true if t is an anagram of s, and false otherwise.
     //An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.

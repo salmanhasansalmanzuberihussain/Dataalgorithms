@@ -9,8 +9,6 @@
 //l2 1-2
 
 
-
-
 function addtwonumbers(l1,l2){
      while(l1 || l2){
       let val1 =0
