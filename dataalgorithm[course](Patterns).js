@@ -332,3 +332,22 @@ return arr[0] * productOfArray(arr.slice(1))
 //slices the elements 
 
 
+
+function birthday(s, d, m) {
+  let sum =0;
+  for(let i=0; i<m; i++){
+      sum += s[i]
+  }
+  let count=0;
+  if(sum==d){
+    count++
+  }
+      
+  for(var i=m; i<s.length; i++){
+   sum = sum +s[i]-sum[i-m];
+   if(sum==d){
+    count++
+  }
+}
+return count
+}

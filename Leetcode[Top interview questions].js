@@ -300,3 +300,13 @@ function searchInsertPosition(nums,target){
  
 
 
+//Given a string s consisting of words and spaces, return the length of the last word in the string.
+//A word is a maximal substring consisting of non-space characters only.
+
+//trim and split the function pop the function then return the length
+
+var lengthOfLastWord = function(s) {
+    let word= s.trim('').split(' ')
+    let string = word.pop()
+    return string.length;
+};

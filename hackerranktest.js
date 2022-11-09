@@ -265,5 +265,3 @@ return [max,min]
 
 
 //i had the scores[i] and the max score the other way around the order matters you want to set the maxscore to the [i] not the min score 
-
-

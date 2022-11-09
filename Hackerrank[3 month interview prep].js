@@ -430,4 +430,22 @@ function marsExploration(s) {
   }
 
 
-  
+  //There are two -element arrays of integers,  and . Permute them into some  and  such that the relation  holds for all  where 
+  //sort the arrays compare the value of the array return no or yes
+
+  function twoArrays(k, A, B) {
+    A.sort((a,b) => a-b)
+    B.sort((a,b) => b-a)
+    for(var i=0; i<A.length; i++){
+        if(A[i]+B[i]<k) return 'NO'
+    }
+    return 'YES'
+}
+function twoArrays(k, A, B) {
+  A.sort((a,b)=> a-b)
+  B.sort((b,a)=>b-a)
+  for(var i=0; i<A.length; i++){
+    if (A[i]+B[i]<k) return 'NO'
+  }
+  return 'YES'
+}
