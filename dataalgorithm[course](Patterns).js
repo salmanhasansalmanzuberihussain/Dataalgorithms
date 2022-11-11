@@ -352,7 +352,9 @@ function birthday(s, d, m) {
 return count
 }
 
-//sorting bubble
+//sorting bubble //bubble sort is N^2
+
+//buggle sort is when you check if the value of j> arr[j+1] then replace arr[j+1] and then you just keep sorting 
 
 function bubbleSort(arr){
   for(var i=0; i<arr.length;i++){
@@ -369,35 +371,43 @@ function bubbleSort(arr){
 }
 
 
-function bubbleSort(arr){
-  for(var i=arr.length; i>=0; i++){
-    for(var j=0; j>i-1; j--){
-      if(arr[j]>arr[j+1]){
-        let temp = arr[j]
-        arr[j]=arr[j+1]
-        arr[j+1]=temp;
-      }
-    }
-  }
-  return arr;
+//bubble sort is N^2
+
+
+//
+
+// Selection Sort 
+// If you look at a sort say you have 19,44,38,5,47,15 
+// Compare 19,44,38,5,47,15 
+// Go through the array compare the minimum and then change the first element from the minimum element 
+
+for(var i=0; i<arr.length;i++){ 
+    var lowest =i; 
+    for(var j=i+1; j<arr.length; j++){ 
+     if(arr[j]<arr[lowest]) { 
+	     lowest=j; 
+} 
+} 
+var temp= arr[i] 
+arr[i]= arr[lowest] 
+arr[lowest]=temp; 
+} 
+
+return arr; 
+
+SelectionSort([34,22,10,19,17]) 
+
+//insertion sort 
+
+function insertionsort(arr){
+  for(var i=0; i<arr.length; i++){
+      var currentVal = arr[i]
+   for(var j=i-1; j>=0 && arr[j]>currentVal; j--){
+       arr[j+1]= arr[j]
+   }
+  arr[j+1]=currentVal
+ }
+return arr;
 }
 
-bubbleSort([37,45,29,8]);
-
-
-function bubbleSort(arr){
-  var noSwaps;
-  for(var i=arr.length; i>=0; i++){
-    noSwaps = true;
-    for(var j=0; j>i-1; j--){
-      if(arr[j]>arr[j+1]){
-        let temp = arr[j]
-        arr[j]=arr[j+1]
-        arr[j+1]=temp;
-        noSwaps=false;
-      }
-    }
-    if(noSwaps) break;
-  }
-  return arr;
-}
+insertionsort([1,5,4,4,5])
