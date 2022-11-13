@@ -163,3 +163,21 @@ var mySqrt = function(x) {
   }
 }
 
+//Binary Tree Preorder Traversal
+//node is an element or letter
+//start with putting the root in the stack
+//pop off whatever is in the stack and place it into the result and check if there is anything on the right of it
+//or anything on the left of it
+//if we have a node to the right, we want to push that into the stack
+
+//if root null return null
+
+var isSymmetric = function(root) {
+  function recurse(l,r){
+      if(!l && !r) return true
+      if(!l || !r || l.val !== r.val) return false; 
+ 
+      return recurse(l.left,r.right) && recurse(l.right, r.left)
+  }
+     return recurse(root.left,root.right)
+ };
