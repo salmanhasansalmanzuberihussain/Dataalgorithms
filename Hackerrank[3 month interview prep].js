@@ -139,8 +139,6 @@ function miniMaxSum(arr) {
 
 //Pattern 3 
 //Add the sums and since theyre in order you can calculate the min and max
-
-
 function miniMaxSum(arr){
   let sum = 0
   let arrs = arr.sort() 
@@ -387,8 +385,6 @@ function countingValleys(steps, path) {
 //the quick brown fox jumps over the lazy dog
 
 
-
-
 function pangrams(s) {
   let alphabet = "abcdefghijklmnopqrstuvwxyz";
   let regex = /\s/g;
@@ -448,4 +444,45 @@ function twoArrays(k, A, B) {
     if (A[i]+B[i]<k) return 'NO'
   }
   return 'YES'
+}
+
+
+
+
+//There is a large pile of socks that must be paired by color. Given an array of integers representing the color of each sock, determine how many pairs of socks with matching colors there are
+function sockMerchant(n, ar) {
+  let pairs=0;
+  let storage={}
+  for(const element of ar){
+      storage[element] = storage[element] +1 || +1
+      if(storage[element]%2===0){
+          pairs++
+      }
+  }
+  return pairs;
+}
+
+
+//Given an array of bird sightings where every element represents a bird type id, 
+//determine the id of the most frequently sighted type. If more than 1 type has been spotted that maximum amount, return the smallest of their ids
+
+//Overview
+//I knew right away to loop through this array. that i understand and set a counter and some sort of storage.
+
+//Questions i have why doesnt a regular storage work with {}
+
+//Why cant i use store[num]>max and max=store[num] maxarr[num] and return maxarr
+
+function migratoryBirds(arr) {
+  let max=0;
+  let maxarr=6
+  let store= new Array(6).fill(0) //why does regular store not work 
+  for(const num of arr){
+      store[num]++
+      if(store[num]>max){
+          max = store[num]
+          maxarr=num
+      }
+  }
+  return maxarr 
 }
