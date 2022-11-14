@@ -137,11 +137,129 @@ function bubblesort(arr){
  //insertion sort 
  function insertionsort(arr){
   for(var i=0; i<arr.length; i++){
-    let currentval = arr[i]
-    for(var j=i-1; j>=0 && arr[j]>currentval; j--){
-      arr[j+1]= arr[j]
-    }
-   arr[j+1]=currentval
-  }
-  return arr;
+       let currentval = arr[i]
+        for(var j=i-1; j>=0 && arr[j]>currentval; j--){
+         arr[j+1]= arr[j]
+       }
+       arr[j+1]=currentval
+     }
+     return arr;
  }
+
+
+//Merging Arrays 
+
+//Merge Sort 
+// It’s a combination of two things- Merging and Sorting! 
+// Splitting up sorting and merging 
+
+
+// Exploits the fact that arrays of 0 or 1 element are always sorted 
+// Works by decomposing an array into smaller arrays of 0 or 1 elements, then building up a newly sorted array 
+
+ 
+
+// [8,3,5,4,7,6,1,2] 
+// Split it into half and we’re still not at one or zero element arrays 
+
+ 
+
+// [8,3,5,4] or [7,6,1,2] 
+// [8,3] or [5,4] or [7,6] or [1,2] 
+// [8],[3],[5],[4],[7],[6],[1],[2] 
+
+ 
+
+// Completely split the whole array until it gets to 0 then from there 
+// merge the array in complete order  
+
+ 
+// 3,8 or 4,5 or 6,7 or 1,2 
+// 3,4,5,8 or 1,2,6,7 
+// Then you take the first element and 3,8,4,5 
+// [3,8] or [4,5] 
+// [3,4,5,8] 
+// 3 compared to 4 and then 8 compared to 5 
+// [6,7] or [1,2] 
+// [1,2,6,7] 
+// Then we [3,4,5,8] or [1,2,6,7] 
+// All you do is compare the values 3,4,5,8 or 1,2,6,7 
+// [1,2,3,4,5,6,7,8] 
+
+ 
+ 
+// In order to implement merge sort, it’s useful to first implement a function responsible for merging two sorted arrays 
+// Given two arrays which are sorted, this helper function should create a new array which is also sorted, and consists of all of elements in the two input arrays 
+// This function should run in O(n+m) time and O(n+m) space and should not modify the parameters passed to it. 
+
+ 
+
+// Merging Arrays Pseudocode 
+// Create an empty array, look at the smallest values in each input array 
+// //look at the smallest values in each input array 
+ 
+
+// While there are still values, we haven’t looked at  
+// If the value in the first array is smaller than the value in the second array...push the value in the first array into our results and move on to the next value in the integer.  
+// If the value in the first array is larger than the value in the second array, push the value in the second array into our results and move on to the next value in the second array 
+
+ 
+// Once we exhaust one array, push in all remaining values from the other array 
+// Two counts  
+//        _              _ 
+// [1,10,50] or [2,14,99,100] 
+// [1] 
+ 
+
+// Which is smaller 1, or 2 
+// 1 is then you store that in the array 
+ 
+//       _               _ 
+// [1,10,50] or [2,14,99,100] 
+// Which is smaller 10 or 2 
+// 2 is smaller 
+// [1,2] 
+ 
+// then you push the array 2 forward to 14 
+//            _              _ 
+// [1,10,50] or [2,14,99,100] 
+// Which one is smaller 10,14 
+// [1,2,10] 
+ 
+// Which one is smaller 14, or 50? 
+// 14  
+
+//             _                   _ 
+// [1,10,50] or [2,14,99,100] 
+// Which one is smaller 10,14 
+// [1,2,10,14,50] 
+ 
+// And then once it’s sorted all you have to do is take all the remaining values 
+// 99,100 and add them to the element
+
+
+
+function mergesort(arr1,arr2){
+  let results =[]
+  let i=0;
+  let j=0;
+  while(i<arr1.length && j<arr2.length){
+    if(arr2[j]> arr1[i]){
+      results.push(arr1[i])
+      i++
+    }else{
+      results.push(arr2[j])
+      j++
+    }
+  }
+  while(i<arr1.length){
+    results.push(arr1[i])
+    i++
+  }
+  while(j<arr2.length){
+    results.push(arr2[j])
+    j++
+  }
+
+  return results;
+}
