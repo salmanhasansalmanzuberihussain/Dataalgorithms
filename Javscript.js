@@ -42,9 +42,6 @@ console.log(firstName, lastName)
 //in a set the value is guarenteed to be unique
 
 
-
-
-
 const ids= new Set(['Hi','from','set!']); 
 ids.add(2)
 if(ids.has('Hi')){
@@ -57,6 +54,90 @@ for(const entry of ids.entries()){
 }
 
 
+//Working w/ Maps
+
+const person1= {name:'Max'}
+const person2={name:'Maxuel'}
+
+const personDate = new Map([[person1, [{date:'yesterday', price: 10}]]])
+new Map([[person1, [{date:'yesterday', price:10}]]]);
+
+console.log(personData)
+
+personData.set//creates a value in a map
+
+personData.get//gets the value 
+
+//Maps vs object
+
+//can use any values and you as keys
+
+//Maps 
+
+//Can use any values and types as keys better performance for huge quantites of data
+
+//Object
+//only may use strings,number or symbols as key perfect for s/m szd set of data
+
+//sets
+//store nested data of any kind and length iterable also some special set method available order is not guarenteed
+
+//Maps store key value data of kind and length any key values are allowed
+
+let person ={name: 'Max'}
+const persons = new WeakSet()
+persons.add(person)
 
 
 
+//What is an object- A closer Look Beyond the Basics
+//Objects group data and functions
+//Core Data structures in JS
+
+//Typically reflect real-world entities
+//buttons and movie
+//Apply real world logic to coding
+//Made up of properties & methods
+//Store data in properties and actions in methods
+//Allow you to group related data togethre and split your code into logicial pieces
+
+//
+
+//const newMovie={
+//id: Math.random().toString(),
+//title: titleValue,
+//image: imageUrlValue,
+//rating: ratingValue
+//};
+
+
+//Primitive Values
+//So only objects are reference values to put it like that
+//numbers
+//strings
+//booleans
+//null
+//undefined
+//symbol
+
+//Reference Values (=Objects)
+//Everything else
+//{...}
+//Arrays
+//DOM Nodes
+//other built in objects
+
+
+const complexPerson = {
+  name: 'Max',
+  hobbies: ['Sports', 'Cooking'],
+  address: {
+      street: 'Some Street 5',
+      stateId: 5,
+      country: 'Germany',
+      phone: {
+          number: 12 345 678 9,
+          isMobile: true
+      }
+  },
+};
