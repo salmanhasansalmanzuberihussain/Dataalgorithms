@@ -164,8 +164,6 @@ var plusOne = function(digits) {
 
 //Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
 //You must implement a solution with a linear runtime complexity and use only constant extra space.
-
-
 var singleNumber = function(nums) {
   let result=0;
 
@@ -175,6 +173,8 @@ var singleNumber = function(nums) {
   return result
 
   };
+
+
 
   var singleNumber = function(nums) {
     const h1 ={}
@@ -190,4 +190,11 @@ var singleNumber = function(nums) {
     }
  }
 
+//104. Maximum Depth of Binary Tree
+//Given the root of a binary tree, return its maximum depth.
+//A binary tree's maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
 
+var maxDepth = function(root) {
+ if(!root) return 0
+ return 1 + Math.max(maxDepth(root.left),maxDepth(root.right))
+};
