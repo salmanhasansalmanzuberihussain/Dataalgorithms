@@ -485,4 +485,67 @@ function migratoryBirds(arr) {
       }
   }
   return maxarr 
+
+}
+
+
+//Using the diagram above, if the student wants to get to page , they open the book to page , 
+//flip  page and they are on the correct page. If they open the book to the last page, page , 
+//they turn  page and are at the correct page. Return .
+
+function pageCount(n, p) {
+  var frontflip = Math.floor(p/2)
+  var backflip= Math.floor((n/2)-frontflip)
+  var result = Math.min(frontflip,backflip)
+  return result;
+}
+
+
+//Given an array of integers, find the longest subarray where the absolute difference between any two elements is less than or equal to 1
+
+//difference is less than equal to 1
+
+//a =[1,1,2,2,4,4,5,5,5]
+//subarray uses a pattern im pretty sure you can use the sliding window pattern in this situation but I dpn't know how to implement it just yet as im still learning
+
+function pickingNumbers(a){
+  let countPlus1 = 1
+  let countMin1 = 1
+  let max=0
+  for(let i=0; i<a.length; i++){
+    countPlus1 = 1
+    countMin1 = 1
+    for(let j=i+1; j<a.length;j++){
+        if(a[j]=== a[i]+1){
+          countPlus1++
+        }else if(a[j] ==a[i]-1){
+          countMin1++
+        }else if(a[j] ==a[i]){
+          countPlus1++
+          countMin1++
+        }
+    }
+    if(countPlus1 >= countMin1 && countPlus1 > max){
+      max= countPlus1
+    }else if(countPlus1 < countMin1 && countPlus1 > max){
+      max= countMin1
+    }
+  }
+  return max;
+}
+
+//A left rotation operation on an array of size n shifts
+//each of the array's elements 1 unit to the left.
+//Given an integer,d, rotate the array that many steps left and return the result.
+
+function rotateLeft(d, arr) {
+  let rotatedArray=[];
+  for(let i =d; i<arr.length; i++){
+    rotatedArray.push(a[i]);
+  }
+
+  for(let i=0; i<d; i++){
+    rotatedArray.push(a[i]);
+  }
+return rotatedArray
 }
