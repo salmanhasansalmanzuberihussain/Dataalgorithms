@@ -157,3 +157,6 @@ function funChallenge(input) {
 }
 
 funChallenge();
+
+BIGO(3 + 4n);
+//O(n)
