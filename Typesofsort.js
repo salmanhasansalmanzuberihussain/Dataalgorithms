@@ -277,3 +277,102 @@ function mergesort(arr1, arr2) {
   }
   return results;
 }
+
+function mergeSort(arr) {
+  if (arr.length <= 1) return arr;
+  let mid = Math.floor(arr.length / 2);
+  let left = mergeSort(arr.slice(0, mid));
+  let right = mergeSort(arr.slice(mid));
+}
+
+mergeSort([10, 24, 76, 73, 72, 1, 9]);
+
+//Math.floor
+//arr.length/2 -> mid Math.floor(arr.length/2)
+//let left = arr.slice(0,mid);
+//let right = arr.slice(mid)
+
+//.slice is a function that codes
+//0,3, the 0 and 3 would go to that point so you just add a mid 0,mid
+//left to the mid, //right to the mid arr.slice(mid)
+//mergeSort([10,24,76,72,1,9])
+
+function merge(arr1, arr2) {
+  let result = [];
+  let i = 0;
+  let j = 0;
+  while (i < arr1.length && j < arr2.length) {
+    if (arr2[j] > arr1[i]) {
+      result.push(arr1[i]);
+      i++;
+    } else {
+      result.push(arr2[j]);
+      j++;
+    }
+  }
+  while (i < arr1.length) {
+    result.push(arr1[i]);
+    i++;
+  }
+  while (j < arr2.length) {
+    result.push(arr2[j]);
+    j++;
+  }
+  return result;
+}
+
+function mergesort(arr) {
+  if (arr.length <= 1) return arr;
+  let mid = Math.floor(arr.length / 2);
+  let left = mergesort(arr.slice(0, mid));
+  let right = mergesort(arr.slice(mid));
+  return merge(left, right);
+}
+
+//explanation of merge sort
+
+//[2,3,4,5,6]
+
+//split the array in half
+//work on the left side first and split that and it goes through merge
+//split until its at 1 element
+
+//then go through the right and split that and it goes through merge
+//work on the right side first and split that and it goes through merge
+//split until its at 1 element
+
+//then finally get to the merge(left,right)
+
+//do it again just to make sure that i know how to do this[Merge Sort]
+
+function merge(arr1, arr2) {
+  let result = [];
+  let i = 0;
+  let j = 0;
+  while (i < arr1.length && j < arr2.length) {
+    if (arr2[j] > arr1[i]) {
+      result.push(arr1[i]);
+      i++;
+    } else {
+      result.push(arr2[j]);
+      j++;
+    }
+  }
+  while (i < arr1.length) {
+    result.push(arr1[i]);
+    i++;
+  }
+  while (j < arr2.length) {
+    result.push(arr2[j]);
+    j++;
+  }
+  return result;
+}
+
+function mergesort(arr) {
+  if (arr.length <= 1) return arr;
+  let mid = Math.floor(arr.length / 2);
+  let left = mergesort(arr.slice(0, mid));
+  let right = mergesort(arr.slice(mid));
+  return merge(left, right);
+}
