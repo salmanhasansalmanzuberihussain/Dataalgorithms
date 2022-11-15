@@ -539,13 +539,13 @@ function pickingNumbers(a){
 //Given an integer,d, rotate the array that many steps left and return the result.
 
 function rotateLeft(d, arr) {
-  let rotatedArray=[];
-  for(let i =d; i<arr.length; i++){
-    rotatedArray.push(a[i]);
+  let rotadedarray=[]
+  for(var i=d; i<arr.length; i++){
+    rotadedarray.push(arr[i])
   }
 
-  for(let i=0; i<d; i++){
-    rotatedArray.push(a[i]);
+  for(var i=0; i<d; i++){
+    rotadedarray.push(arr[i])
   }
-return rotatedArray
+  return rotadedarray
 }
