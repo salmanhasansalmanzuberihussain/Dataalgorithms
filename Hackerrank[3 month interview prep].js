@@ -549,3 +549,22 @@ function rotateLeft(d, arr) {
   }
   return rotadedarray
 }
+
+
+
+//You are choreographing a circus show with various animals. 
+//For one act, you are given two kangaroos on a number line ready to jump in the positive direction 
+//(i.e, toward positive infinity).
+
+//The first kangaroo starts at location x1 and moves at a rate of v1 meters per jump
+//The second kangaroo starts at location x2 and moves at a rate of v2 meters per jump
+
+  function kangaroo(x1, v1, x2, v2) {
+    let RESULT="NO"
+    for(var i=0; i<10000; i++){
+     if(x1+(v1*i)+ x2+(v2*i)){
+       RESULT="YES"
+     }
+    }
+   return RESULT;
+   }
