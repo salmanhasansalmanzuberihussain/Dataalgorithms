@@ -461,3 +461,19 @@ function mergesort(arr) {
   let right = mergesort(arr.slice(mid));
   return merge(left, right);
 }
+
+//Merge Sort Big 0 of mergeSort
+//The Merge complexity is
+//o(n log n) Time Complexity(Best,Average)
+//o(n log n) Time Complexity(Best,Average)
+
+//32
+//16 //16
+//8 //8 //8 //8
+//4 //4 //4 //4 //4 //4 //4 //4
+//2 //2 //2 //2 //2 //2 //2 //2 //2 //2 //2 //2 //2 //2 //2 //2
+//1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1
+
+//this relationship is log n(2^n)
+
+//theres always 8 items and we're always comparing em and thats //o(n)
