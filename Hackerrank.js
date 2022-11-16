@@ -836,3 +836,27 @@ function kangaroo(x1, v1, x2, v2) {
   }
  return RESULT;
  }
+
+
+ //A numeric string, , is beautiful if it can be split into a sequence of two or more positive integers, , satisfying the following conditions:
+
+ // for any  (i.e., each element in the sequence is  more than the previous element).
+
+ //No  contains a leading zero. For example, we can split  into the sequence , but it is not beautiful because  and  have leading zeroes.
+
+ //The contents of the sequence cannot be rearranged. For example, we can split  into the sequence , but it is not beautiful because it breaks our first constraint (i.e., )
+
+ function separateNumbers(s) {
+  for (let i = 0; i <= Math.floor(s.length / 2); i++){ //for loop(let i=0; i<=Math.floor(s.length/2); i++)
+      let char = s.slice(0, i) //let char = s.slice(o,i)
+      let num = BigInt(char);
+      let newStr = ''
+      while(newStr.length < s.length)  
+      newStr += num++
+      if(newStr === s){
+        console.log('YES' , char)
+        return;
+      }
+  }
+  console.log('NO')
+}
