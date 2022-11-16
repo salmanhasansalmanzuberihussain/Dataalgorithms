@@ -272,3 +272,56 @@ let sub2 = word.substring(4, 8);
 //26. you can set a counter and add elements and it will convert to an array. Let counter =0 then add elements convert to an array
 
 //27.//i know i had to use some sort of loop use the while loop if you need to insert something in order or something of that nature
+
+//Objects can use numbers or symbols and can store positive numbers 0 or higher
+//Can access this console.log(person[1.5]); //and can wrap this in quotes
+
+//the order is kept in the way we keep things
+
+//if you have an object with only numbers than that will be sorted
+
+const keyName = 'first name';
+console.log(person[keyName]); //can look at it dynamiccally anything that yields a value
+
+let person = {
+  'first name': 'Max',
+  age: 30,
+
+  hobbies: ['Sports', 'Cooking'],
+  greet: function () {
+    alert('Hi There!');
+  },
+  1.5: 'hello',
+};
+
+console.log(person['first name']);
+console.log(person[1.5]);
+console.log(person);
+
+const userChosenKeyName = 'level';
+//but lets assume we got this from a dynamic input by the user
+
+let person = {
+  'first name': 'Max',
+  age: 30,
+  hobbies: ['sports', 'cooking'],
+  [userChosenKeyName]: '...',
+  greet: function () {
+    alert('Hi There!');
+  },
+  1.5: 'Hello',
+};
+
+const propKey = 'field 12';
+const person = {
+  [propKey]: 'Max',
+};
+console.log(person['field 12']);
+
+//What would be a use-case for a dynamic property assignment (i.e. for setting a property via [] on the "left side of the colon")?
+//You want to set a user-defined property name
+
+//delete SomeObject.someProp is how you delete
+//in an object cant have a semi colon or special characters
+
+//That's correct! If you don't know the property name in advance (i.e. at the time you're writing the code), dynamic assignment allows you to refer to a variable which will eventually hold the to-be-used property name.
