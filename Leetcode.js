@@ -221,3 +221,46 @@ var maxDepth = function (root) {
   if (!root) return null;
   return 1 + Math.max(maxDepth(root.right), maxDepth(root.left));
 };
+
+// [-10,-3,0,5,9]
+// Root is going to be the middle
+// Everything on the left is less than and everything on the right is greater than
+
+//[-10,-3,0,5,9]
+
+//three pointers makes sense to me
+
+//l - is -10 //left=0
+//m-is 0
+//r-is 9 //nums.length-1 (last index)
+
+//move the right pointer to -3
+//calculates a new min (l+r)/2 and floored
+//pass in another recursive function mid+1
+//and then set a m and calculate and then it will be placed in the tree
+//when calculating the left, we're going to move the pointer to mid +1
+//going to be at the mid value
+
+//O(n)
+//O-5-9
+//O-10-3
+
+//In this leetcode problem its about converting an array into a binary search tree
+//theres two ways to do this using Math.floor or ceil to make this work
+
+//you have to set three pointers to make this work nums,left,right
+//the left side cant be greater than the right side
+//You have to create a center and then from there root.left and add a sortedArraytoBST and move it mid-1
+//Root.right = sortedArrayToBST and move the mid+1, to the right
+//and then return root
+
+var sortedArrayToBST = function (nums, left = 0, right = nums.length - 1) {
+  if (left > right) return null;
+
+  let mid = Math.floor((left + right) / 2);
+  let root = new TreeNode(nums[mid]);
+  root.left = sortedArrayToBST(nums, left, mid - 1);
+  root.right = sortedArrayToBST(nums, mid + 1, right);
+
+  return root;
+};
