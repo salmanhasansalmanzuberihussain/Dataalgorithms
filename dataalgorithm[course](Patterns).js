@@ -407,94 +407,6 @@ insertionsort([1, 5, 4, 4, 5]);
 
 //Regular merge sort
 
-function mergesort(arr1, arr2) {
-  let results = [];
-  let i = 0;
-  let j = 0;
-  while (i < arr1.length && j < arr2.length) {
-    if (arr2[j] > arr1[i]) {
-      results.push(arr1[i]);
-      i++;
-    } else {
-      results.push(arr2[j]);
-    }
-    while (i < arr1.length) {
-      results.push(arr1[i]);
-      i++;
-    }
-
-    while (j < arr2.length) {
-      results.push(arr2[j]);
-    }
-  }
-  return results;
-}
-
-function merge(arr1, arr2) {
-  let result = [];
-  let i = 0;
-  let j = 0;
-  while (i < arr1.length && j < arr2.length) {
-    if (arr2[j] > arr1[i]) {
-      result.push(arr1[i]);
-      i++;
-    } else {
-      result.push(arr2[j]);
-      j++;
-    }
-  }
-  while (i < arr1.length) {
-    result.push(arr1[i]);
-    i++;
-  }
-  while (j < arr2.length) {
-    result.push(arr2[j]);
-    j++;
-  }
-  return result;
-}
-
-function mergesort(arr) {
-  if (arr.length <= 1) return arr;
-  let mid = Math.floor(arr.length / 2);
-  let left = mergesort(arr.slice(0, mid));
-  let right = mergesort(arr.slice(mid));
-  return merge(left, right);
-}
-
-//Merge Sort Big 0 of mergeSort
-//The Merge complexity is
-//o(n log n) Time Complexity(Best,Average)
-//o(n log n) Time Complexity(Best,Average)
-
-//32
-//16 //16
-//8 //8 //8 //8
-//4 //4 //4 //4 //4 //4 //4 //4
-//2 //2 //2 //2 //2 //2 //2 //2 //2 //2 //2 //2 //2 //2 //2 //2
-//1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1
-
-//this relationship is log n(2^n)
-
-//theres always 8 items and we're always comparing em and thats //o(n)
-
-//Sliding window technique
-
-//Write a function called MaxSubarraySum which accepts an array of integers and a number called N.
-//The function should calculate the maximum sum of n consecutive elements in the array.
-///the function maxSumArraySum(array,num)
-
-//also a useful technique for the running average
-
-//Question variants
-//Fixed Length
-//max sum subarray of size k
-
-//dynamic variant
-//smallest sum>= to some value S
-
-//dynamic variant w/Auxilarry data strucuture
-
 function MaxSubarraySum(arr, num) {
   let maxSum = 0;
   let tempSum = 0;
@@ -623,3 +535,207 @@ while (start < nums.length) {
 }
 
 return minLen === Infinity ? 0 : minLen;
+
+function mergesort(arr1, arr2) {
+  let results = [];
+  let i = 0;
+  let j = 0;
+  while (i < arr1.length && j < arr2.length) {
+    if (arr2[j] > arr1[i]) {
+      results.push(arr1[i]);
+      i++;
+    } else {
+      results.push(arr2[j]);
+    }
+    while (i < arr1.length) {
+      results.push(arr1[i]);
+      i++;
+    }
+
+    while (j < arr2.length) {
+      results.push(arr2[j]);
+    }
+  }
+  return results;
+}
+
+function merge(arr1, arr2) {
+  let result = [];
+  let i = 0;
+  let j = 0;
+  while (i < arr1.length && j < arr2.length) {
+    if (arr2[j] > arr1[i]) {
+      result.push(arr1[i]);
+      i++;
+    } else {
+      result.push(arr2[j]);
+      j++;
+    }
+  }
+  while (i < arr1.length) {
+    result.push(arr1[i]);
+    i++; //make sure to increment
+  }
+  while (j < arr2.length) {
+    result.push(arr2[j]);
+    j++; //make sure to increment
+  }
+  return result;
+}
+
+function mergesort(arr) {
+  if (arr.length <= 1) return arr;
+  let mid = Math.floor(arr.length / 2);
+  let left = mergesort(arr.slice(0, mid));
+  let right = mergesort(arr.slice(mid));
+  return merge(left, right);
+}
+
+//Merge Sort Big 0 of mergeSort
+//The Merge complexity is
+//o(n log n) Time Complexity(Best,Average)
+//o(n log n) Time Complexity(Best,Average)
+
+//32
+//16 //16
+//8 //8 //8 //8
+//4 //4 //4 //4 //4 //4 //4 //4
+//2 //2 //2 //2 //2 //2 //2 //2 //2 //2 //2 //2 //2 //2 //2 //2
+//1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1 //1
+
+//this relationship is log n(2^n)
+
+//theres always 8 items and we're always comparing em and thats //o(n)
+
+//Sliding window technique
+
+//Write a function called MaxSubarraySum which accepts an array of integers and a number called N.
+//The function should calculate the maximum sum of n consecutive elements in the array.
+///the function maxSumArraySum(array,num)
+
+//also a useful technique for the running average
+
+//Question variants
+//Fixed Length
+//max sum subarray of size k
+
+//dynamic variant
+//smallest sum>= to some value S
+
+//dynamic variant w/Auxilarry data strucuture
+
+//Introduction to quick sort
+
+//Have to solve with recursion
+//Like merge sort exploits the fact that arrays of 0 or 1 element are always sorted
+//Work by selecting one element called the pivot, and finding the index where the pivot should end up
+//in the sorted array
+
+//[5,2,1,8,4,7,6,3]
+
+//pick some element
+//the first one which is [5,2,1,8,4,7,6,3]
+
+//take all the elements that are less than 5 of it to the left of it and all the numbers that are greater than give to the right
+
+//numbers less than 5
+//2,1,4,3
+
+//going to move them all here and then on the right side
+
+//5,2,1,8,4,7,6,3
+
+//2,1,4,3 //in this index you move 5 and that becomes
+//3,2,1,4,5,7,6,8
+
+//pick the first item and get the first spot
+//and then you end up with 1,2,3, //3 is going to have index of 2 5 is going to have index of 4
+//1,2,3,4,5,7,6,8
+
+//3,2,1,4,5,7,6,8
+//1,2,3,4,5,7,6,8
+
+//pick the first element and see where it needs to go 1,2,3,4,5,7,6,8
+//7,6,8
+//we move the other elemnts so we move six to the left of it, eight to the right of it
+
+//So that becomes
+//[1,2,3,4,5,6,7,8]
+
+//11,40,40,50,43,10,30,42,20,6,19,32,20,41,23,27
+
+//Take 11
+//you get to 10 and you would think you move it, but no you actually just increment 10 and add 11
+//11,10,40,40,50,43,40,30,42,,20,6,19,32,20,41,23,27
+
+//11,10,6,50,43,40,30,42,20,40,19,32,20,41,23,27
+//two items that we need 11 to leap frog over
+//6,10,11,50,43,40,30,42,20,40,19,32,20,41,23,27
+
+//it then cements 6,10,11,50,43,40,30,42,20,40,19,32,20,41,23,27
+//50 //how many numbers are greater than 50 or how many numbers are less than 50, 12 numbers greater than 50
+
+//6,10,11,27,43,40,30,42,20,40,19,32,20,41,23,50
+//6,10,11,27,30,40,30,42,43,40,19,32,20,41,23,50
+//43,40,30,42,20
+//swap 43 and 20
+//swap 40 and 19
+//then swap 30 and 23
+//and then 27 jumps over all those numbers that were sorted
+
+//this is quick sort
+//have to explain quick sort
+
+//Basically if you have 3,5,10,30,50
+//3,9,5,40,10
+
+//what is less than 3?
+//nothing
+
+//what is less than 9
+//5 so 9 jumps over 5
+//what is less than 40
+
+//pivot helper
+//In order to implement merge sort, it's useful to first implement a function responsible aranging elements in an array
+//on either side of a pivot
+//Given an array this helper function should designate an element as the pivot
+//all values of the pivot are moved to the left and the right
+
+//the runtime of quick sort depends in part on how one selects the pivot
+//ideally the pivot should be chosen so that it's roughly the median value in the data set you're sorting
+//For simplicity we'll always choose the pivot to be the first element(we'll talk about consequencces of this later)
+
+//let arr = [5,2,1,8,4,7,6,3]
+
+//pivot(arr);
+
+//arr;
+
+//picks the first element and chooses that as an element 5,
+
+//all the elements less than 5, the order of the other values doesn't matter
+
+//Pivot Pseudocode
+//it will help to accept three arguments, an array, a start index, and an end index
+//these can be default to 0 and the array length minus1 respectively
+
+//array sttart index and end index
+
+function pivot(arr, start = 0, end = arr.length - 1) {
+  let pivots = arr[0];
+  for (var i = 0; i < arr.length; i++) {
+    if (pivots > arr[i]) {
+      i++;
+      //how do i move those elements that are less than the pivot and keep track of em to move them?
+    }
+  }
+}
+
+//28,41,4,11,16,1,40,14,36,37,42,18
+
+//28,41,4,11,16,1,40,14,36,37,42,18
+//28,4,41,11,16,1,40,14,36,37,42,18
+
+//28,4,11,41,16,1,40,14,36,37,42,18
+//there are 6 elements less than our pivot, have to swap 28, with out first number
