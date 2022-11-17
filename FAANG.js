@@ -160,3 +160,115 @@ funChallenge();
 
 BIGO(3 + 4n);
 //O(n)
+
+function anotherFunChallenge(input) {
+  let a = 5; //O(1)
+  let b = 10; //O(1)
+  let c = 50; //O(1)
+  for (let i = 0; i < input; i++) {
+    //O(n)
+    let x = i + 1; //O(n)
+    let y = i + 2; //O(n)
+    let z = i + 3; //O(n)
+  }
+  for (let j = 0; j < input; j++) {
+    //O(n)
+    let p = j * 2; //O(n)
+    let q = j * 2; //O(n)
+  }
+  let whoAmI = "I don't know"; //O(1)
+}
+
+// BIG O(4+ 7n) //is O(n) basically if something is bigger it just eats the others  so say if it was n^2 it doesn;t matter if there is O9N)
+
+//Simplifying Big O(n)
+//In interviews how are you going to do this
+
+//Big O
+//break helps stop the loop once the array is found or the value is found so it doesn't loop through the whole array
+//trying to find NEMO
+
+//Best case is if nemo is at the beginning so you only gotta loop once
+//Worst case is if nemo is at the end so you loop 10 times
+
+const nemo = ['nemo'];
+const everyone = [
+  'dory',
+  'bruce',
+  'marlin',
+  'nemo',
+  'gill',
+  'bloat',
+  'nigel',
+  'squirt',
+  'darla',
+  'hank',
+];
+const large = new Array(100000).fill('nemo');
+
+function findNemo(array) {
+  for (let i = 0; i < array.length; i++) {
+    console.log('running');
+    if (array[i] === 'nemo') {
+      console.log('Found NEMO!');
+      break;
+    }
+  }
+}
+
+findNemo(everyone);
+
+//Remove Constants
+//if you look at the array there is var middleindex= math.floor(items.length/2)
+//while loop is half so it's O(n/2)
+//and then you add 100
+
+function printFirstItemThenFirstHalfThenSayHi100times(items) {
+  console.log(items[0]);
+
+  var middleIndex = Math.floor(items.length / 2);
+  var index = 0;
+
+  while (index < middleIndex) {
+    console.log(items[index]);
+    index++;
+  }
+
+  for (var i = 0; i < 100; i++) {
+    console.log('hi');
+  }
+}
+
+//O(1+n/2+100)
+//Dont care about n/2 and 100 and n/2 and drop all the constants and can get the time complexity
+//O(n)
+
+function compressBoxesTwice(boxes){
+  boxes.forEach(function(boxes)){
+    console.log(boxes);
+    });
+
+
+    boxes.forEach(function(boxes){
+      console.log(boxes);
+      });
+    }
+
+    //Always drop the constants two for loops is still O(n) but if that for loop was inside that for loop
+    //it would be On^2
+
+  
+  //Different terms for inputs
+  //Trickiest part of an interview
+
+function compressBoxesTwice(boxes){
+  boxes.forEach(function(boxes){
+    console.log(boxes);
+  });
+
+  boxes.forEach(function(boxes){
+    console.log(boxes);
+  });
+}
+
+
