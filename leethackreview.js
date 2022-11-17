@@ -100,3 +100,46 @@ var romanToInt = function (s) {
   }
   return total;
 };
+
+//0-2
+// //Given a time in -hour AM/PM format, convert it to military (24-hour) time.
+// Note: - 12:00:00AM on a 12-hour clock is 00:00:00 on a 24-hour clock.
+// - 12:00:00PM on a 12-hour clock is 12:00:00 on a 24-hour clock.
+
+function timeConversion(s) {
+  let late = s.includes('PM');
+  if (!late) {
+    s = s.split('AM'); //split means to remove element
+    s = s[0].split(':'); //s[0] splits array into two
+    if (s[0] == '12') s[0] = '00';
+    return s.join(':');
+  } else {
+    s = s.split('PM');
+    s = s[0].split(':');
+    if (s[0] != '12') s[0] = (parseInt(s[0]) + 12).toString();
+    return s.join(':');
+  }
+}
+
+//when completeing this problem watch out for the amount of 0 i am using as this is going to become a problem
+
+// Longest Common Prefix
+//Write a function to find the longest common prefix string amongst an array of strings.
+//If there is no common prefix, return an empty string ""
+
+//this pattern is more of a memorization pattern although you should understand it, the pattern is more of a memorizaiton pattern,
+
+//strs[0], //for loop var i=0; i<strs.length; i++ and then while the prefix is in the loop get the characters of the prefix and return the prefix
+
+var longestCommonPrefix = function (strs) {
+  let prefix = strs[0];
+  for (var i = 0; i < strs.length; i++) {
+    while (strs[i].indexOf(prefix)) {
+      prefix = prefix.substring(0, prefix.length - 1);
+    }
+  }
+  return prefix;
+};
+
+//The indexOf() method returns the first index at which a given element can be found in the array,
+//The substring() method returns the part of the string between the start and end indexes, or to the end of the string
