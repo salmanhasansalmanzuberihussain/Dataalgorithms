@@ -340,8 +340,7 @@ function birthday(s, d, m) {
 
 //sorting bubble //bubble sort is N^2
 
-//buggle sort is when you check if the value of j> arr[j+1] then replace arr[j+1] and then you just keep sorting
-
+//bubble sort is when you check if the value of j> arr[j+1] then replace arr[j+1] and then you just keep sorting
 function bubbleSort(arr) {
   for (var i = 0; i < arr.length; i++) {
     for (var j = 0; j < arr.length; j++) {
@@ -357,9 +356,6 @@ function bubbleSort(arr) {
 }
 
 //bubble sort is N^2
-
-//
-
 // Selection Sort
 // If you look at a sort say you have 19,44,38,5,47,15
 // Compare 19,44,38,5,47,15
@@ -406,135 +402,6 @@ insertionsort([1, 5, 4, 4, 5]);
 //once the array has been merged back together, return the merge and sorted array
 
 //Regular merge sort
-
-function MaxSubarraySum(arr, num) {
-  let maxSum = 0;
-  let tempSum = 0;
-  if (arr.length < num) return null;
-  for (let i = 0; i < num; i++) {
-    maxSum += arr[i];
-  }
-
-  tempSum = maxSum;
-  for (let i = num; i < arr.length; i++) {
-    tempSum = tempSum - arr[i - n] + arr[i];
-    maxSum = Math.max(tempSum, maxSum);
-  }
-  return maxSum;
-}
-
-MaxSubarraySum([2, 3, 4, 5, 3, 2, 3, 2], 3);
-
-function minSubArrayLen(target, nums) {
-  let result = Infinity;
-  let left = 0;
-  let sum = 0;
-
-  for (i = 0; i < nums.length; i++) {
-    sum += nums[i];
-
-    while (sum >= target) {
-      result = Math.min(result, i + 1 - left);
-      sum -= nums[left];
-      left++;
-    }
-  }
-  return result != Infinity ? result : 0;
-}
-
-let total = 0;
-let start = 0;
-let end = 0;
-let minLen = Infinity;
-
-while (start < nums.length) {
-  if (total < target && end < nums.length) {
-    total += nums[end];
-    end++;
-  } else if (total >= target) {
-    minLen = Math.min(minLen, end - start);
-    total -= nums[start];
-    start++;
-  } else {
-    break;
-  }
-}
-
-return minLen === Infinity ? 0 : minLen;
-
-//Sliding window technique
-
-//Write a function called MaxSubarraySum which accepts an array of integers and a number called N.
-//The function should calculate the maximum sum of n consecutive elements in the array.
-///the function maxSumArraySum(array,num)
-
-//also a useful technique for the running average
-
-//Question variants
-//Fixed Length
-//max sum subarray of size k
-
-//dynamic variant
-//smallest sum>= to some value S
-
-//dynamic variant w/Auxilarry data strucuture
-
-function MaxSubarraySum(arr, num) {
-  let maxSum = 0;
-  let tempSum = 0;
-  if (arr.length < num) return null;
-  for (let i = 0; i < num; i++) {
-    maxSum += arr[i];
-  }
-
-  tempSum = maxSum;
-  for (let i = num; i < arr.length; i++) {
-    tempSum = tempSum - arr[i - n] + arr[i];
-    maxSum = Math.max(tempSum, maxSum);
-  }
-  return maxSum;
-}
-
-MaxSubarraySum([2, 3, 4, 5, 3, 2, 3, 2], 3);
-
-function minSubArrayLen(nums, s) {}
-
-function minSubArrayLen(target, nums) {
-  let result = Infinity;
-  let left = 0;
-  let sum = 0;
-
-  for (i = 0; i < nums.length; i++) {
-    sum += nums[i];
-
-    while (sum >= target) {
-      result = Math.min(result, i + 1 - left);
-      sum -= nums[left];
-      left++;
-    }
-  }
-  return result != Infinity ? result : 0;
-}
-
-let total = 0;
-let start = 0;
-let end = 0;
-let minLen = Infinity;
-
-while (start < nums.length) {
-  if (total < target && end < nums.length) {
-    total += nums[end];
-    end++;
-  } else if (total >= target) {
-    minLen = Math.min(minLen, end - start);
-    total -= nums[start];
-    start++;
-  } else {
-    break;
-  }
-}
-
-return minLen === Infinity ? 0 : minLen;
 
 function mergesort(arr1, arr2) {
   let results = [];
@@ -739,3 +606,185 @@ function pivot(arr, start = 0, end = arr.length - 1) {
 
 //28,4,11,41,16,1,40,14,36,37,42,18
 //there are 6 elements less than our pivot, have to swap 28, with out first number
+
+function pivot(arr, start = 0, end = arr.length + 1) {
+  function swap(array, i, j) {
+    //this is just a loop to make
+    var temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+  var pivot = arr[start]; //create a pivot at the start , this is the first value
+  var swapIdx = start; //swapIdx =0 this keeps track of how we're going to have to swap //this is the index
+  for (var i = start + 1; i < arr.length; i++) {
+    //for (var i=start+1; i<arr.length; i++)
+    if (pivot > arr[i]) {
+      //if pivot>arr[i]
+      swapIdx++; //swapIdx++
+      swap(arr, swapIdx, i); //swap(arr,swapIdx,i) //takes the value
+      console.log(arr);
+    }
+  }
+  swap(arr, start, swapIdx); //arr,start,swapidx, once that swap is complete swap the start and the swapidx
+  return swapIdx;
+}
+
+pivot([4, 8, 2, 1, 5, 7, 6, 3]);
+
+//4,8,2
+//found that 2 is greater than 4 so we keep track of the counter
+//i, with swapidx, i
+//pivot (4,8,2,1,5,7,6,3)
+//[4,8,2,1,5,7,6,3]
+//[4,2,8,1,5,7,6,3]
+//[4,2,8,1,5,7,6,3]
+//[4,2,8,1,5,7,6,3]
+//[4,2,1,3,5,7,6,8]
+//[4,2,1,3,5,7,6,8]
+//take last index
+
+//[3,2,1,4,5,7,6,8]
+
+//at the very end we would swap
+//[1,2,4,8,5,7,6,3]
+
+//in pivot sort
+
+//for(var i=0; i<arr.length; i++)
+
+//3,5,3,2,5
+
+//what is pivot sort, pivot sort is
+//[3,2,5,4,3,2]
+
+//[3,2,5,4,3,2]
+//look at the concept
+//theres 3 theres 2
+
+//the pivot is greater than the number
+//increment those numbers
+//and then do a temp swap of that last index and the start
+
+//then do a swap
+
+function pivot(arr, start = 0, end = arr.length - 1) {
+  function swap(arr, i, j) {
+    let temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+  }
+
+  let pivot = arr[start];
+  let swapIdx = start;
+
+  for (var i = 1; i < arr.length; i++) {
+    if (pivot > arr[i]) {
+      swapIdx++;
+      swap(arr, swapIdx, i);
+    }
+  }
+  swap(arr, start, swapIdx);
+  return swapIdx;
+}
+
+function quickSort(arr, left = 0, right = arr.length - 1) {
+  if (left < right) {
+    let pivotIndex = pivot(arr, left, right);
+    //left
+    quickSort(arr, left, pivotIndex - 1);
+    //right
+    quickSort(arr, pivotIndex + 1, right);
+  }
+  return arr;
+}
+quickSort([4, 6, 9, 1, 2, 5, 3]);
+
+//Quicksort Pseudocode
+//Call the pivot helper on the array
+//recursively call the same thing call quick sort again on the left
+//When the helper returns to you the updated pivot index, recirsively call the pivot helper
+//on the subarray to the left of that index, and the subarray to the right of that index
+
+function quickSort(arr, left = 0, right = arr.length - 1) {
+  if (left < right) {
+    let pivotIndex = pivot(arr, left, right);
+    //left
+    quickSort(arr, left, pivotIndex - 1);
+    //right
+    quickSort(arr, pivotIndex + 1, right);
+  }
+  return arr;
+}
+quickSort([4, 6, 9, 1, 2, 5, 3]);
+
+//quicksort explained
+
+function pivot(arr, start = 0, end = arr.length - 1) {
+  function swap(arr, i, j) {
+    let temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+  }
+
+  let pivot = arr[start];
+  let swapIdx = start;
+
+  for (var i = 1; i < arr.length; i++) {
+    if (pivot > arr[i]) {
+      swapIdx++;
+      swap(arr, swapIdx, i);
+    }
+  }
+  swap(arr, start, swapIdx);
+  return swapIdx;
+}
+
+function quicksort(arr, left = 0, right = arr.length - 1) {
+  if (left < right) {
+    let pivotIndex = pivot(arr, left, right); //pivot index=3
+    quicksort(arr, left, pivotIndex - 1); //this way the pivot index isn't included in what we do
+    quicksort(arr, pivotIndex + 1, right);
+  }
+  return arr;
+}
+
+quicksort([4, 6, 9, 1, 2, 5, 3]);
+
+//make pivot function from scratch
+
+//in order to remember this you need to understand what a pivot function is and how it works
+
+//pivot function is when you have an array
+
+//[3,4,5,4,2,1]
+
+//you have to see what value are less than the pivot and move them over and swap with the other value
+
+function pivot(arr, start = 0, end = arr.length - 1) {
+  function swap(arr, i, j) {
+    let temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+  }
+  let pivot = arr[start];
+  startingindex = start;
+
+  for (var i = start; i < arr.length; i++) {
+    if (pivot > arr[i]) {
+      startingindex++;
+      swap(i, startingindex, i);
+    }
+  }
+  swap(i, start, startingindex);
+  return startingindex;
+}
+
+function quicksort(arr, left = 0, right = arr.length - 1) {
+  if (left < right) {
+    let prefixvalue = pivot(arr, left, right);
+    quicksort(arr, left, prefixvalue - 1);
+    quicksort(arr, prefixvalue + 1, right);
+  }
+
+  return arr;
+}
