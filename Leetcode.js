@@ -264,3 +264,68 @@ var sortedArrayToBST = function (nums, left = 0, right = nums.length - 1) {
 
   return root;
 };
+
+//Given an integer numRows, return the first numRows of Pascal's triangle.
+//In Pascal's triangle, each number is the sum of the two numbers directly above it as shown:
+
+//[1]
+//[1,1]
+//[1,2,1] //
+//[1,3,3,1] //i-1
+//[1,4,6,4,1] //i
+
+//1. Pascals Triangle->
+//declare an array of size(numRows)
+
+//2.Generate row by row
+//row[0]=1
+//row[row.length-1]=1
+
+//to generate the values between 1 and 1 look at the row above
+//row above = pascalsTriangle[i-1]
+//then add
+//rowAbove[j]+ rowAbove[j-1]
+
+[1, __, ___, __, 1];
+
+//j=3+1 =4
+//j-1
+
+//1,3,3,1
+//1,4,
+
+var generate = function (numRows) {
+  let pascalsTriangle = new Array(numRows); //pascals triangle = new Array(numRows)
+
+  for (let i = 0; i < numRows; i++) {
+    let row = new Array(i + 1); // row = new Array(i+1)
+    row[0] = 1; //first element = 1
+    row[row.length - 1] = 1; //last element = 1
+
+    for (let j = 1; j < row.length - 1; j++) {
+      //j=1; j< row.length-1; j++
+      let rowAbove = pascalsTriangle[i - 1];
+      row[j] = rowAbove[j] + rowAbove[j - 1];
+    }
+    pascalsTriangle[i] = row;
+
+    return pascalsTriangle;
+  }
+};
+
+var generate = function (numRows) {
+  let pascalstriangle = [[numRows]];
+
+  for (let i = 0; i < numRows; i++) {
+    let row = [[i + 1]];
+    row[0] = 1;
+    row[row.length - 1] = 1;
+
+    for (let j = 1; j < row.length - 1; j++) {
+      let rowAbove = pascalsTriangle[i - 1];
+      row[j] = rowAbove[j] + rowAbove[j - 1];
+    }
+    pascalstriangle[i] = row;
+  }
+  return pascalstriangle;
+};
