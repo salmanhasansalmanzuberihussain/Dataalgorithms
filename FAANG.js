@@ -261,14 +261,80 @@ function compressBoxesTwice(boxes){
   //Different terms for inputs
   //Trickiest part of an interview
 
-function compressBoxesTwice(boxes){
+function compressBoxesTwice(boxes,boxes2){
   boxes.forEach(function(boxes){
     console.log(boxes);
   });
 
-  boxes.forEach(function(boxes){
+  boxes2.forEach(function(boxes){
     console.log(boxes);
   });
 }
 
+//O(2n)
+//O(n)
+
+//Different terms for input
+//Third rules state that different terms for input, //are two different inputs
+//O(a+b)// because theres two variables two inputs
+
+
+//Log all pairs of array
+const box =['a','b', 'c', 'd','e']
+
+function logAllPairsOfArray(array){
+  for(let i=0; i<array.length; i++){
+    for(let j=0; j<array.length; j++){
+      console.log(array[i],array[j])
+    }
+  }
+}
+
+logAllPairsOfArray(box)
+
+//nested loops means O(n^2) - this is called quadratic time
+//O(n*n)
+//O(n^2)
+
+
+function compressBoxesTwices(boxes,boxes2){
+  boxes.forEach(function(boxes){
+    console.log(boxes)
+  });
+
+  boxes2.forEach(function(boxes){
+    console.log(boxes)
+  });
+}
+//O(a=b)
+//O(a*b)
+//anything that happens with indentation you create nested
+
+//Rule number 4 drop all non dominant terms
+
+function printAllNumbersThenAllPairSums(numbers){
+
+    console.log('these are the numbers:');
+    numbers.forEach(function(number){
+        console.log(number)
+    });
+
+   console.log('and these are their sums:');
+   numbers.forEach(function(firstNumber){
+    numbers.forEach(function(secondNumber){
+        console.log(firstNumber + secondNumber)
+    });
+  });
+}
+
+//4th rule 
+//this is O(n +n^2)
+//this is just O(n^2)
+
+//O(1)- Constant no loops
+//O(log N)- Logarithmic usually searching algorithms have log n if they are supported
+//O(n)- Linear for loops while loops through n items
+//O(n log(n)) Log linear suported loops
+//O(2^n) // exponential recurisve algorithms that solves a problem
+//O(n!)
 
