@@ -839,24 +839,62 @@ function kangaroo(x1, v1, x2, v2) {
 
 
  //A numeric string, , is beautiful if it can be split into a sequence of two or more positive integers, , satisfying the following conditions:
-
  // for any  (i.e., each element in the sequence is  more than the previous element).
-
- //No  contains a leading zero. For example, we can split  into the sequence , but it is not beautiful because  and  have leading zeroes.
-
+ //No contains a leading zero. For example, we can split  into the sequence , but it is not beautiful because  and  have leading zeroes.
  //The contents of the sequence cannot be rearranged. For example, we can split  into the sequence , but it is not beautiful because it breaks our first constraint (i.e., )
+//BigInt values represent numeric values which are too large to be represented by the number primitive.
 
- function separateNumbers(s) {
-  for (let i = 0; i <= Math.floor(s.length / 2); i++){ //for loop(let i=0; i<=Math.floor(s.length/2); i++)
-      let char = s.slice(0, i) //let char = s.slice(o,i)
-      let num = BigInt(char);
-      let newStr = ''
-      while(newStr.length < s.length)  
-      newStr += num++
-      if(newStr === s){
-        console.log('YES' , char)
-        return;
-      }
+//how do i split the strings
+//split the string using ''
+
+
+//Everything makes sense in this problem besides 1 thing, why are we dividing the length by half of the string 
+function separateNumbers(s) {
+  for(var i=0; i<=Math.floor(s.length/2); i++){
+      let char = s.slice(0,i)
+      let nums = BigInt(char)
+      let newstr= ''
+  while(newstr.length<s.length){
+      newstr += nums++
+      if(newstr===s){
+          console.log('YES', char)
+          return;
+      }   
+  }
   }
   console.log('NO')
+}
+
+//Sorting is useful as the first step in many different tasks.
+//The most common task is to make finding things easier, 
+//but there are other uses as well. In this case, 
+//it will make it easier to determine which pair
+//or pairs of elements have the smallest absolute difference between them
+
+//the idea is to find the minimum difference between the array and then store the pairs
+//realistically the easiest way is to loop through and then store the differnece, this is how i would approach the
+//problem
+
+//so i store the min, what does it want stored?
+//it wants the array pairs
+
+//how do know that the function is the minumum thats something thats difficult
+//like do i go through all the arrays, and then check the min, or is there a way to do it automatically?
+
+//looking at this solution how does it know that it is the min value and the max value like what is telling the code like yo this
+//is the least min value cause wouldnt it just store all the values?
+
+//i think the answer to this question is the first time the absMin is calulated the absmin is going to change 
+
+
+function closestNumbers(arr) {
+  let pairs=[]
+  let min=Infinity
+  arr.sort((a,b)=>a-b)
+  for(var i=0; i<arr.length; i++){
+      let val = arr[i+1]-arr[i]
+      if(val<min) pairs=[], min= val;
+      if(val<=min) pairs.push(arr[i],arr[i+1])
+  }
+  return pairs
 }
