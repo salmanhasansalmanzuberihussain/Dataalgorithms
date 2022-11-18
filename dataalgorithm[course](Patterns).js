@@ -674,22 +674,25 @@ function pivot(arr, start = 0, end = arr.length - 1) {
     arr[j] = temp;
   }
 
+  // We are assuming the pivot is always the first element
   let pivot = arr[start];
   let swapIdx = start;
 
-  for (var i = 1; i < arr.length; i++) {
+  for (let i = start + 1; i <= end; i++) {
     if (pivot > arr[i]) {
       swapIdx++;
       swap(arr, swapIdx, i);
     }
   }
+
+  // Swap the pivot from the start the swapPoint
   swap(arr, start, swapIdx);
   return swapIdx;
 }
 
 function quickSort(arr, left = 0, right = arr.length - 1) {
   if (left < right) {
-    let pivotIndex = pivot(arr, left, right);
+    let pivotIndex = pivot(arr, left, right); //3
     //left
     quickSort(arr, left, pivotIndex - 1);
     //right
@@ -697,7 +700,8 @@ function quickSort(arr, left = 0, right = arr.length - 1) {
   }
   return arr;
 }
-quickSort([4, 6, 9, 1, 2, 5, 3]);
+
+quickSort([100, -3, 2, 4, 6, 9, 1, 2, 5, 3, 23]);
 
 //Quicksort Pseudocode
 //Call the pivot helper on the array
@@ -719,72 +723,51 @@ quickSort([4, 6, 9, 1, 2, 5, 3]);
 
 //quicksort explained
 
-function pivot(arr, start = 0, end = arr.length - 1) {
-  function swap(arr, i, j) {
-    let temp = arr[i];
-    arr[i] = arr[j];
-    arr[j] = temp;
-  }
+//data algorithms [Quicksort]
 
-  let pivot = arr[start];
-  let swapIdx = start;
+//what is quicksort ([3,4,5,2,9,1])
+//([5,4,2,1,5])
 
-  for (var i = 1; i < arr.length; i++) {
-    if (pivot > arr[i]) {
-      swapIdx++;
-      swap(arr, swapIdx, i);
-    }
-  }
-  swap(arr, start, swapIdx);
-  return swapIdx;
-}
+//if the pivot> greater than the value then you swap the value
 
-function quicksort(arr, left = 0, right = arr.length - 1) {
-  if (left < right) {
-    let pivotIndex = pivot(arr, left, right); //pivot index=3
-    quicksort(arr, left, pivotIndex - 1); //this way the pivot index isn't included in what we do
-    quicksort(arr, pivotIndex + 1, right);
-  }
-  return arr;
-}
+//i create a swap that needs to function
+//then i made a pivot that starts at arr[start]
+//startindex = start
 
-quicksort([4, 6, 9, 1, 2, 5, 3]);
+//then its best to loop from the start and if that value of the pivot is greater than arr[i]
+//startindex++
+//sqap(arr,startindex,i)
 
-//make pivot function from scratch
+//swap(arr,start, startindex)
+//return startindex
 
-//in order to remember this you need to understand what a pivot function is and how it works
-
-//pivot function is when you have an array
-
-//[3,4,5,4,2,1]
-
-//you have to see what value are less than the pivot and move them over and swap with the other value
+// then call quicksort
 
 function pivot(arr, start = 0, end = arr.length - 1) {
   function swap(arr, i, j) {
     let temp = arr[i];
     arr[i] = arr[j];
-    arr[j] = temp;
+    temp = arr[j];
   }
-  let pivot = arr[start];
-  startingindex = start;
 
-  for (var i = start; i < arr.length; i++) {
+  let pivot = arr[start];
+  let startindex = start;
+
+  for (var i = start; i <= end; i++) {
     if (pivot > arr[i]) {
-      startingindex++;
-      swap(i, startingindex, i);
+      startindex++;
+      swap(arr, startindex, i);
     }
   }
-  swap(i, start, startingindex);
-  return startingindex;
+  swap(arr, start, startindex);
+  return startindex;
 }
 
 function quicksort(arr, left = 0, right = arr.length - 1) {
   if (left < right) {
-    let prefixvalue = pivot(arr, left, right);
-    quicksort(arr, left, prefixvalue - 1);
-    quicksort(arr, prefixvalue + 1, right);
+    let pivothelper = pivot(arr, left, right);
+    quicksort(arr, left, pivothelper - 1);
+    quicksort(arr, pivothelper + 1, right);
   }
-
   return arr;
 }
