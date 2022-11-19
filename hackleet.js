@@ -205,8 +205,8 @@ var isValid = function (s) {
   for (let char of s) {
     if (hashmap[char]) {
       stack.push(hashmap[char]);
-    } else {
-      if (stack.pop() != char) return false;
+    } else if (stack.pop() != char) {
+      return false;
     }
   }
   return !stack.length;
@@ -216,3 +216,67 @@ var isValid = function (s) {
 //!stack.length
 //rather than for loop through i then set val can use a for of loop with s
 //a quick reminder for of loop is used for array
+
+//Given an array of integers and a positive integer , determine the number of  pairs where  and  +  is divisible by .
+// ar=[1,2,3,4,5,6]
+//k=5
+
+//O(n) solution
+
+function divisibleSumPairs(n, k, ar) {
+  var count = 0;
+
+  for (let i = 0; i < ar.length; i++) {
+    ar.slice(i + 1, n).filter((salman) => {
+      if ((salman + ar[i]) % k == 0) {
+        count++;
+      }
+    });
+  }
+  return count;
+}
+
+function divisibleSumPairs(n, k, ar) {
+  let count = 0;
+
+  for (let i = 0; i < n; i++) {
+    for (let j = i + 1; j < n; j++) {
+      if ((ar[i] + ar[j]) % k == 0) {
+        count++;
+      }
+    }
+  }
+  return count;
+}
+
+//Merge two sorted lists
+//think of these two lists theres
+
+1 - 2 - 3 - 4;
+1 - 2 - 3;
+
+1 - 1 - 2 - 2 - 3 - 3 - 4;
+
+//compare the values of 1 and 1 if = then curr.next=l1 just push it to the node then compare 2 and 1, 2. Is greater than 1 so push 2 and then increment l2, then look at l2 vs l2 and its 2 and then push l2
+
+var mergeTwoLists = function (l1, l2) {
+  let curr = new ListNode();
+  const dummy = curr;
+  while (l1 && l2) {
+    if (l1.val < l2.val) {
+      curr.next = l1;
+      l1 = l1.next;
+    } else {
+      curr.next = l2;
+      l2 = l2.next;
+    }
+    curr = curr.next;
+  }
+  if (l1) {
+    curr.next = l1;
+  }
+  if (l2) {
+    curr.next = l2;
+  }
+  return dummy.next;
+};
