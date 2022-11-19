@@ -294,6 +294,20 @@ var sortedArrayToBST = function (nums, left = 0, right = nums.length - 1) {
 //1,3,3,1
 //1,4,
 
+
+//Declare an array of new Array(numRows)
+
+//going to generate row by row 
+//first element of row and last element of row always 1
+//row[0]
+//row[row.length-1]=1
+
+//generate values between 1 and 1 look at the row above
+//rowabove = pascalstriange[i-1]
+//then add rowaobe[j]+ rowabobe[j-1]
+
+//pascalstriange[i]=row
+
 var generate = function (numRows) {
   let pascalsTriangle = new Array(numRows); //pascals triangle = new Array(numRows)
 
@@ -307,25 +321,66 @@ var generate = function (numRows) {
       let rowAbove = pascalsTriangle[i - 1];
       row[j] = rowAbove[j] + rowAbove[j - 1];
     }
-    pascalsTriangle[i] = row;
+    pascalsTriangle[i] = row; 
 
     return pascalsTriangle;
   }
 };
 
-var generate = function (numRows) {
-  let pascalstriangle = [[numRows]];
 
-  for (let i = 0; i < numRows; i++) {
-    let row = [[i + 1]];
-    row[0] = 1;
-    row[row.length - 1] = 1;
 
-    for (let j = 1; j < row.length - 1; j++) {
-      let rowAbove = pascalsTriangle[i - 1];
-      row[j] = rowAbove[j] + rowAbove[j - 1];
-    }
-    pascalstriangle[i] = row;
+//You are given an array prices where prices[i] is the price of a given stock on the ith day.
+//You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
+//Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
+
+//dont have to consider its sorted
+//you are given an array prices where prices[i] is the price of a given stock on the ith day
+
+[7,1,5,3,6,4]
+
+//buy it for now
+//if i waited 1 day would be 1,5,3,6,4
+
+//this is similar to keeping maria scores
+
+//if i buy the price and its larger i know i messed up
+//set the new buyer price
+//to keep track of profit use a Math.max(profit[i]-buy, profit)
+
+var maxProfit = function(prices) {
+  let buy = prices[0]
+  let profit=0
+
+  for(let i=0; i<prices.length;i++){
+      if(buy>prices[i]){
+          buy=prices[i]
+      }else{
+          profit= Math.max(prices[i]-buy,profit)
+      }
   }
-  return pascalstriangle;
-};
+  return profit;
+}
+
+//make sure that i subtract the price from buy as the price is more expensive other than that i stored it the right way 
+//Good to know if you need to include method to check where the element is present in array then use indexOf
+//includes is to check if it exists
+var isPalindrome = function(str) {
+  let arr = str.slice('')
+  let result=[]
+  let alphabet= '0123456789abcdefghijklmnopqrstuvwxyz'
+
+  for(let i of arr){
+      if(alphabet.includes(i.toLowerCase())){
+          result.push(i.toLowerCase())
+      }
+  }
+  return result.join('') == result.reverse().join('')
+
+}
+
+
+
+
+
+
+}
