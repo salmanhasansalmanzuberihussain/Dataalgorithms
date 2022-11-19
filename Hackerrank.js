@@ -52,24 +52,6 @@ function plusMinus(array) {
 
 
 
-//Given an array of integers and a positive integer k, determine the number of (i,j) pairs where i<j  and ar[ii+[j] is divisible by .
-
-//most definetly need to create a for loop, this way i can loop through the array and determine (i,j)
-
-function divisibleSumPairs(n, k, ar){
-  let sum =0;
-  for(i=0; i<array.length; i++){
-    for(j=i+1; j<array.length; j++){
-        if(i<j && (array[i]+array[j]) %k ===0){
-            sum += array[i]
-        }
-    }
-  }
-  return sum;
-}
-
-//have to increment 1 not the array value or index 
-
 
 //Given a time in -hour AM/PM format, convert it to military (24-hour) time.
 //i cant remember if it was splice or split these are important questions 
@@ -893,8 +875,45 @@ function closestNumbers(arr) {
   arr.sort((a,b)=>a-b)
   for(var i=0; i<arr.length; i++){
       let val = arr[i+1]-arr[i]
-      if(val<min) pairs=[], min= val;
-      if(val<=min) pairs.push(arr[i],arr[i+1])
+      if(val<min){
+          pairs=[];
+          min= val;
+         pairs.push(arr[i],arr[i+1])
+      }else if(val===min){
+         pairs.push(arr[i],arr[i+1]) 
+      } 
   }
   return pairs
+}
+
+//looking at this question i realized that the only reason why 
+function closestNumbers(arr) {
+  arr.sort((a,b)=>a-b)
+  let min=Infinity
+  let pair=[]
+  for(let i=0; i<arr.length; i++){
+      let val = Math.abs(arr[i+1]-arr[i])
+      if(val<min) min=val, pair=[];
+      if(val<=min) pair.push(arr[i],arr[i+1])     
+  }
+  return pair
+}
+
+//what doesn't really make sense to me at all is why in the heck do you have val<min and min=val and pair=[]
+//if val <=min pair.push(arr[i],arr[i+1]), why am i not pushing it with val <=min, for some reason an error comes to play, and why do i even have to define
+
+// Two players are playing a game of Tower Breakers! Player  always moves first, and both players always play optimally.The rules of the game are as follows:
+// Initially there are  towers.
+// Each tower is of height .
+// The players move in alternating turns.
+// In each turn, a player can choose a tower of height  and reduce its height to , where  and  evenly divides .
+// If the current player is unable to make a move, they lose the game.
+// Given the values of  and , determine which player will win. If the first player wins, return . Otherwise, return .
+
+function towerBreakers(n, m) {
+  if(m==1 || n%2==0){
+      return 2
+  }else{
+      return 1
+  }
 }
