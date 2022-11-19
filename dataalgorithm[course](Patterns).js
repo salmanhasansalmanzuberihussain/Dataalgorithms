@@ -747,20 +747,20 @@ function pivot(arr, start = 0, end = arr.length - 1) {
   function swap(arr, i, j) {
     let temp = arr[i];
     arr[i] = arr[j];
-    temp = arr[j];
+    arr[j] = temp;
   }
 
   let pivot = arr[start];
-  let startindex = start;
+  let swapidx = start;
 
   for (var i = start; i <= end; i++) {
     if (pivot > arr[i]) {
-      startindex++;
-      swap(arr, startindex, i);
+      swapidx++;
+      swap(arr, swapidx, i);
     }
   }
-  swap(arr, start, startindex);
-  return startindex;
+  swap(arr, start, swapidx);
+  return swapidx;
 }
 
 function quicksort(arr, left = 0, right = arr.length - 1) {
@@ -770,4 +770,232 @@ function quicksort(arr, left = 0, right = arr.length - 1) {
     quicksort(arr, pivothelper + 1, right);
   }
   return arr;
+}
+
+//Quicksort is a memorization thing but as i keep practicing this stuff is going to become second nature
+//Big O of quicksort
+
+//Time complexity
+//O(n log n)
+
+//Best case
+//[8,5,6,1,3,7,2,4,12,13,14,11,9,15,10]
+//make decomposition
+//8
+
+//[4,5,6,1,3,7,2]
+//[12,13,14,11,9,15,10]
+
+//if we have more elements than we have to make 5 elements
+//what is the worst case
+//[1,2,3,4,5,6,7,8,9,10]
+//1
+//so every time we go through each decomposition is only one item that we're pivoting on
+
+//so everything moves to the right side with out current algorithm
+//when the pivot chosen is the minimumum pivot chosen every single time
+
+//All the sorts we've seen thus far are comparison sort algorithms
+//Base comparisonwe're doing is between two items at any given sort
+
+//Bubble.Insertion,Selectiion sort - O(n^2)
+//quicksort- O(n log(n))
+//mergesort- O(n log(n))
+
+//Can we improve on O(n log n) the answer is sort of
+
+//n log n is the best time complexity we can find in any sort
+//we can do better but not with comparisons
+//take advantage of special properties of the data
+
+//Integer sorting algorithms
+
+//one of these examples is radix sort,
+
+//RADIX Sort
+//Kind of fun because we're not making comparisons
+
+//Radix sort is a special sorting algorithm that works on lists of numbers
+//It never makes comparisons between elements
+//it exploits the fact that information about the size of a number is encoded in the number of digits
+
+//more digits mean a bigger number
+
+//how does it actually work
+
+//[1556,4,3556,593,408,4386,901,7,8157,86,9637,29]
+
+//we have some numbers that are one digit
+
+//Create 10 buckets
+
+//0,1,2,3,4,5,6,7,8,9
+
+//look at the index and get the last digit of the right
+//6,4,6,3,8,6,2,7,7,6,7,9
+
+//after that we group them by their second digit
+//when you look at these numbers
+
+//902,593,4,1556,3556,4386,86,7,8157, 9637,408,29
+
+//then you look at that column
+//0,9,4,1556,3556,4386,86,7
+//since the single digit number dont have that number in the bucket so we put them in the 0 bucket
+
+//this helper gets the place of the number
+
+function getDigit(num, i) {
+  return Math.floor(Math.abs(num) / Math.pow(10, i)) % 10;
+}
+
+//this helper counts how many digits are in a number
+function digitCount(num) {
+  if (num === 0) return 1;
+  return Math.floor(Math.log10(Math.abs(num))) + 1;
+}
+
+//Math.floor [Math.abs num/Math.pow(10,i)%10]
+
+//getDigit(7323,2)
+//this will get you 0
+//Math.abs works with negative numbers
+
+//7323/100
+
+//73/10
+
+//So we divide by the place, the hundreds place, then we floor to get rid of that decimal, then we
+//This helper function is specifically made so you can get the index of
+
+//7323,0
+
+//you get 3 then you get 0
+
+//The next helper we need has to do with figuring out how many digits are in a number
+//[4,7,29,86,408,593,902,1556,3556,4386,8157,9637]
+//How many times do we have to reorder everything the answer is 4
+
+//digitCount(1)
+//digitCount(25)
+//digitCount(314)
+
+//this gets the digit value of the number
+//three helper functions needed for data algorithms
+
+//get the value of the 100th value
+function getDigit(nums, i) {
+  return Math.floor(Math.abs(nums) / Math.pow(10, i)) % 10;
+}
+
+//get the amount of numbers of the counter
+function digitCount(nums) {
+  if (nums === 0) return 1;
+  return Math.floor(Math.log10(Math.abs(nums))) + 1;
+}
+
+//given an array of numbers, return the number of digits in the largest numbers in the list
+function mostDigits(nums) {
+  let maxdigits = 0;
+  for (let i = 0; i < nums.length; i++) {
+    maxdigits = Math.max(maxdigits, digitCount(nums[i])); //get max value
+  }
+  return maxdigits;
+}
+
+function radixSort(nums) {
+  let maxDigitCount = mostDigits(nums); //this checks the value of the max digit of numbers so we can sort it
+  for (let k = 0; k < maxDigitCount; k++) {
+    //loop through let k=0; k<maxDigitCount; k++
+    //loop through the maxdigitcount
+    let digitBuckets = Array.from({ length: 10 }, () => []); //this is the part where you sort the array
+    for (let i = 0; i < nums.length; i++) {
+      //loop through again
+      let digit = getDigit(nums[i], k); //create digit
+      digitBuckets[digit].push(nums[i]); //gives us the digit of the last value //digit =.push(nums[i])
+    }
+    nums = [].concat(...digitBuckets); //helps me pass all the arguments in digit buckets  //nums =[].concat(...digitBuckets)
+  }
+  return nums; //return nums
+}
+
+radixSort([23, 345, 5476, 12, 2345, 9852]);
+
+//Define a function that accepts list of numbers
+//Figure out how many digits the largest number has //[most digits]
+//start a loo from k up to largest number of digits
+//for each iteration of the loop, create a bucket for each digit (0 to 9)
+//create buckets for each digit (0 to 9)
+//Place each number in the corresponding bucket based on its kth digit
+//Replace our existing array with values in our bucket starting with 0 to 9
+//return the list at the end
+
+//Today we're going to learn radix sort
+
+//this gets the digit of the i
+function getdigit(nums, i) {
+  return Math.floor(Math.abs(nums) / Math.pow(10, i)) % 10;
+}
+
+function digitvalue(nums) {
+  //gets the value of each number
+  if (nums === 0) return 1;
+  return Math.floor(Math.log10(Math.abs(nums))) + 1;
+}
+
+function mostdigits(nums) {
+  let maxdigit = 0;
+  for (let i = 0; i < nums.length; i++) {
+    maxdigit = Math.max(maxdigit, digitvalue(nums[i]));
+  }
+  return maxdigit;
+}
+
+function radix(nums) {
+  let maxdigitcount = mostdigits(nums);
+  for (let k = 0; k < maxdigitcount; k++) {
+    let bucket = Array.from({ length: 10 }, () => []); //watch for this its () => []
+
+    for (let i = 0; i < nums.length; i++) {
+      let digits = getdigit(nums[i], k);
+      bucket[digits].push(nums[i]);
+    }
+    nums = [].concat(...bucket);
+  }
+  return nums;
+}
+
+//gets you the value
+function getadigit(nums, i) {
+  return Math.floor(Math.abs(nums) / Math.pow(10, i)) % 10;
+}
+
+//get digits in array
+function getdigitsinarray(nums) {
+  if (nums == 0) return 1;
+  return Math.floor(Math.log10(Math.abs(nums))) + 1;
+}
+
+//gets max digits
+function maxvalue(nums) {
+  let digit = 0;
+  for (let i = 0; i < nums.length; i++) {
+    digit = Math.max(digit, getdigitsinarray(nums[i]));
+  }
+  return digit;
+}
+
+function radix(nums) {
+  let maxdigit = maxvalue(nums);
+
+  for (let k = 0; k < maxdigit; k++) {
+    let bucket = Array.from({ length: 10 }, () => []);
+
+    for (let j = 0; j < nums.length; j++) {
+      let digit = getadigit(nums[j], k);
+      bucket[digit].push(nums[j]);
+    }
+    nums = [].concat(...bucket); //spread operator gets all the values in the array
+  }
+  return nums;
 }
