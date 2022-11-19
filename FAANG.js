@@ -338,3 +338,26 @@ function printAllNumbersThenAllPairSums(numbers){
 //O(2^n) // exponential recurisve algorithms that solves a problem
 //O(n!)
 
+//out of practice can i do the quick sort
+
+//O(n!) //this exists and is the most steep version of factorial 
+
+//3 pillars of programming 
+
+//1. Readable
+//2. Scaleable
+
+
+//How fast is our run time on the code 
+//How much time does it take for a function to run 
+
+//Scaleable is Big O 
+
+//RAM is what the memory of our code is made
+//Which code is best?
+
+
+//3 pillars
+//1.Readable clean code that others can read and is maintainable
+//2.Speed and and is efficent and scales well 
+//3.Memory usage of code, want it to use less memory of code
