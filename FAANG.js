@@ -361,3 +361,115 @@ function printAllNumbersThenAllPairSums(numbers){
 //1.Readable clean code that others can read and is maintainable
 //2.Speed and and is efficent and scales well 
 //3.Memory usage of code, want it to use less memory of code
+
+//Spacecomplexity
+//most primatives(booleans,numbers,undefined,null) are constant space
+
+//Strings require O(n) space //50 characters the string takes up to 50 times more space than a single character string
+
+//Reference types are generally O(n), where n is the longth(for arrays) or the number of keys(for objects)
+
+function sum(arr){
+  let total=0; //variable called total 
+  for(let i=0; i<arr.length;i++){ //another number
+    total +=arr[i]
+  }
+  return total;
+}
+
+//sums all the items in the array
+//adding item to the array
+
+//the total
+
+
+//big o 
+//o(n) 
+//arr might have 1 item or 10 items or 10000 items
+//O(1)
+
+function dobule(arr){
+  let newArr=[]
+  for(let i=0; i<arr.length; i++){
+    newArr.push(2*arr[i])
+  }
+  return newArr;
+}
+
+//the answer is proportional to the array 
+//O(n)
+
+
+//big o 
+//o(n) 
+//arr might have 1 item or 10 items or 10000 items
+//O(1)
+
+//what causes space complexity
+//variables //O(1)
+//data structures
+//function call
+//allocations
+
+function boooo(n){
+  for(let i=0; i<n.length; i++){
+    console.log('boooo!')
+  }
+}
+
+boooo([1,2,3,4,5]) //o(1)
+
+//what is the space cmoplexity
+//Additional space
+
+//we're adding a let i=0
+
+function arrayOfHiNTimes(n){
+  let hiArray =[];
+  for(let i=0; i<n; i++){
+    hiArray[i]= 'hi'
+  }
+  return hiArray
+}
+
+//arrayOfHiNTimes(6)
+
+
+//twitter example
+
+//get their first name
+//get their last name
+
+
+//space complexity O(n)
+
+function tweets(n){
+  let array=[]
+  for(let i=0; i<n.length; i++){
+    array.push(n[i])
+  }
+  let firstwwet = array[0]
+  let lasttweet=array[array.length-1]
+}
+
+const array=['hi','my', 'teddy']
+array[0]
+array[array.length-1]
+
+
+const yo = [{
+  tweet:'hi',
+  date:2021
+}, {
+  tweet:'hi',
+  date:2021
+},{
+  tweet:'hi',
+  date:2021
+}];
+
+//O(n^2)
+
+
+'hgfdsfghjk'.length //O(1) in js
+
