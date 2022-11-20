@@ -373,3 +373,20 @@ var isPalindrome = function (str) {
   }
   return result.join('') == result.reverse().join('');
 };
+
+// Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
+// You must implement a solution with a linear runtime complexity and use only constant extra space.
+
+var singleNumber = function (nums) {
+  const storage = {};
+
+  for (const val of nums) {
+    storage[val] = (storage[val] || 0) + 1;
+  }
+
+  for (const key in storage) {
+    if (storage[key] === 1) {
+      return key;
+    }
+  }
+};
