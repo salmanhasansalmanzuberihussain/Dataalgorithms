@@ -965,37 +965,66 @@ function radix(nums) {
   return nums;
 }
 
-//gets you the value
-function getadigit(nums, i) {
-  return Math.floor(Math.abs(nums) / Math.pow(10, i)) % 10;
-}
+// What is data structures
+// Binary search trees
+// Queues
+// Binary heaps
+// Directed graphs
+// Hash tables
+// Stacks
+// Single linked lists
+// Doubly linked lists
+// Undirected unweighted graphs
 
-//get digits in array
-function getdigitsinarray(nums) {
-  if (nums == 0) return 1;
-  return Math.floor(Math.log10(Math.abs(nums))) + 1;
-}
+// What is a data structure
+// Collection of values
+// Relationship among them
+// Function or operations that can be applied to the data
 
-//gets max digits
-function maxvalue(nums) {
-  let digit = 0;
-  for (let i = 0; i < nums.length; i++) {
-    digit = Math.max(digit, getdigitsinarray(nums[i]));
-  }
-  return digit;
-}
+// Array holds many value
+// Holds relationship of value
+// Adding push pop sorting reversing
 
-function radix(nums) {
-  let maxdigit = maxvalue(nums);
+// Particular relationship with data
+// Push pop reverse and more
 
-  for (let k = 0; k < maxdigit; k++) {
-    let bucket = Array.from({ length: 10 }, () => []);
+// Different data structures excel at different things. Some are highly specialized while others are generally used
+// Array
+// Single linked list
+// Hash table
+// Binary Heap
+// Binary Search tree
+// Graph undirected graph
+// Unweighted directed graphs
 
-    for (let j = 0; j < nums.length; j++) {
-      let digit = getadigit(nums[j], k);
-      bucket[digit].push(nums[j]);
-    }
-    nums = [].concat(...bucket); //spread operator gets all the values in the array
-  }
-  return nums;
-}
+// All these things store data
+// Why should I care
+// More time u spend the more likely you’ll need to use of the data structures
+// More complicated data and might be working with api and returns graph
+// Dom JS is a tree
+// Most important fit interviews
+// Working with map location data
+// Route code to get some gas
+
+// Need an ordered list with fast insert and removals at the beginning and the end
+// Million data points removing from both ends
+// Linked list comes into play
+
+// Web scraping nested html
+// Use a tree
+// Need to write a scheduler
+// Highest priority task binary heap
+
+// Es2015 class syntax overview
+// Easy to define our data structures
+// Constructors instructors
+// Any sort of object oriented language before or you’ve never defined any sort of patterns
+
+// Objective
+// What a class is
+// Understand how js implements the idea of classes
+// Define terms like abstraction encapsulation and polymorphism
+// Use es2015 class to implement data structures
+
+// What is a class
+// A blueprint for creating objects with predefined properties and methods
