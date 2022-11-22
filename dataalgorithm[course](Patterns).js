@@ -1028,3 +1028,166 @@ function radix(nums) {
 
 // What is a class
 // A blueprint for creating objects with predefined properties and methods
+//A class is a blueprint used to predefined properties and methods
+
+//Explain what a class javascript implements the idea of classes
+//Blueprint for creating objects with pre-defined properties and methods
+//Going to implement a bunch of data structures as classes
+
+//the method to create new objects must be called constructor
+//the class keyword creates a constant so you can not define it. Watch out for the syntax as well
+//has to be defined as constructor and its a special method that will be used to instantiate new student
+
+//Instance Methods - methods that basically live on a particular instance or we talk about a singly linked list
+
+class Student {
+  constructor(firstName, lastName, year) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.grade = year;
+    this.tardies = 0;
+  }
+
+  fullName() {
+    //create a a method that work on instances, whoever is calling this will get a different output
+    //firstStudent or another student in linked list well define push method or reverse method
+    return `Your full name is ${this.firstName} ${this.lastName}`;
+  }
+  markLate() {
+    this.tardies += 1;
+    return `${this.firstName} ${this.lastName} has been late ${this.tardies}`;
+  }
+}
+
+let firstStudent = new Student('Colt', 'Steele',1);
+let secondStudent = new Student('Blue', 'Steele',2);
+
+class Student {
+  constructor(firstName, lastName, year) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.grade = year;
+    this.tardies = 0;
+    this.scores=[]
+  }
+
+  fullName() {
+    //create a a method that work on instances, whoever is calling this will get a different output
+    //firstStudent or another student in linked list well define push method or reverse method
+    return `Your full name is ${this.firstName} ${this.lastName}`;
+  }
+  markLate() {
+    this.tardies += 1;
+    if(this.tardies >=3){
+        return "YOU ARE EXPELLED!!!!"
+    }
+    return `${this.firstName} ${this.lastName} has been late ${this.tardies}`;
+  }
+  addScore(score){
+      this.scores.push(score);
+      return this.scores
+}
+calculateAverage(){
+  let sum= this.scores.reduce(function(a,b) {return a+b;}) //going to go through the array and create a total
+  return sum/this.scores.length;
+}
+}
+
+
+let firstStudent = new Student('Colt', 'Steele',1);
+let secondStudent = new Student('Blue', 'Steele',2);
+
+//Class Methods
+//Creating a class or defining a pattern writing a constructor method
+//We talked about instance method
+
+//Another thing we can use which is the static enroll students (...students){ }
+//static keyword defines a static method for a class
+//Static methods are called without instantiationg their class and cannot be called through a class instance
+//Static methods are often used to create utility functions for an application
+
+
+
+class Student {
+  constructor(firstName, lastName, year) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.grade = year;
+    this.tardies = 0;
+    this.scores=[]
+  }
+
+  fullName() {
+    //create a a method that work on instances, whoever is calling this will get a different output
+    //firstStudent or another student in linked list well define push method or reverse method
+    return `Your full name is ${this.firstName} ${this.lastName}`;
+  }
+
+
+
+  static enrollStudents(...students)
+  markLate() {
+    this.tardies += 1;
+    if(this.tardies >=3){
+        return "YOU ARE EXPELLED!!!!"
+    }
+    return `${this.firstName} ${this.lastName} has been late ${this.tardies}`;
+  }
+  addScore(score){
+      this.scores.push(score);
+      return this.scores
+}
+calculateAverage(){
+  let sum= this.scores.reduce(function(a,b) {return a+b;}) //going to go through the array and create a total
+  return sum/this.scores.length;
+}
+static enrollStudents(){ //example of static class method
+  return "Enrolling Students!"
+}
+}
+
+
+let firstStudent = new Student('Colt', 'Steele',1);
+let secondStudent = new Student('Blue', 'Steele',2);
+
+
+class Point {
+  constructor(x,y){
+    this.x =x;
+    this.y=y;
+  }
+
+  static distance(a,b){
+    const dx = a.x-b.x;
+    const dy = a.y -b.y;
+
+    return Math.hypot(dx,dy)
+  }
+}
+
+const p1 = new Point(5,5);
+const p2 = new Point(10,10)
+
+//Class Method you call on the point 
+
+//How we'll be using classes
+
+class DataStructure() {
+  constructor() {
+
+  }
+  someInstanceMethod(){
+
+  }
+}
+
+//this inside all of our instance methods and constructor, the keyword `this` refers to the
+//object created from that class(also known as instance)
+
+
+//Classes are blueprints that when created make objects known as instances
+//Classes are created with the new keyword
+//constructor function is a special function that gets run when the class is instantiated
+//Instance methods can be added to classes similar to methods in objects
+//Class methods can be added using the static keyword
+
