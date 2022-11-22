@@ -325,3 +325,10 @@ console.log(person['field 12']);
 //in an object cant have a semi colon or special characters
 
 //That's correct! If you don't know the property name in advance (i.e. at the time you're writing the code), dynamic assignment allows you to refer to a variable which will eventually hold the to-be-used property name.
+
+let person = {
+  age: 30,
+  hobbies: ['sports', 'cooking'],
+};
+
+return this.age;
