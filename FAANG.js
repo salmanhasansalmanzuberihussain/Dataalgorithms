@@ -473,3 +473,49 @@ const yo = [{
 
 'hgfdsfghjk'.length //O(1) in js
 
+//Data Structure
+
+//Array
+const strings =['a','b','c','d'];
+//4 items taking up 4 shelves in our memory
+//4*4 16 bytes of storage
+//push method 
+strings.push('e'); //O(1)
+//pop method
+strings.pop(); //O(1)
+strings.pop();
+//add an item in the beginnning of the array
+//unshift
+strings.unshift('x'); // O(n)
+//not best data structure to add to beginning of array
+//splice
+strings.splice(2,0, 'alien')
+//inserting and deleting might not be the best for arrays
+
+console.log(strings)
+
+
+//in a 32 bit system
+
+//0 00000000
+//1 00000000
+//2 00000000
+//3 00000001
+//4 00000000
+//5 00000000
+//6 00000000
+//7 00000111
+
+//strings[2]
+
+
+//Dynamic Array and Static Array
+
+//Static Arrays fixed in size need to specify the array of elements your array will hold
+//Static array, we copy the whole array
+//We allocate 14 blocks of memory
+//Paste the eight list to that location
+
+
+
+//Dynamic Arrays- Allow us to copy and rebuild an array with a new location and more memory
