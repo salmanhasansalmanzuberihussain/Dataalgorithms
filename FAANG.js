@@ -609,3 +609,6 @@ String: Hello
 //a function given an input always outputs the same
 //get really fast data access because all i have to do to find grapes or basket dot grapes is to pass grpes
 
+//Hash tables you're looking at O(1) complexity and is a hack on top of an array
+//A hash table collision is when data goes into a storage and hits the storage 1 by 1 annd goes in the same container, causing a colision.
+//There are ways to fix this but this is what a hash collision is 
