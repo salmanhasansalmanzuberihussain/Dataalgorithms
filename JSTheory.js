@@ -332,3 +332,21 @@ let person = {
 };
 
 return this.age;
+
+//bind ppushes a function for future execution
+//call instead goes ahead and executes the function right away
+//apply will execute function right away
+//this inside a function refers to what is called inside a function
+
+//With this if its outside of a function and it is an arrow function, its going to refer to the inside of a function
+
+//Why do we log window? Use strict indeed leads to undefined being logged instead of global window
+const members = {
+  teamName: 'Blue Rockets',
+  people: ['Max', 'Manuel'],
+  getTeamMembers() {
+    this.people.forEach((p) => {
+      console.log(p + '-' + this.teamName);
+    });
+  },
+};
