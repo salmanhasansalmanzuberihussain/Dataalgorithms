@@ -1123,8 +1123,6 @@ class Student {
     return `Your full name is ${this.firstName} ${this.lastName}`;
   }
 
-
-
   static enrollStudents(...students)
   markLate() {
     this.tardies += 1;
@@ -1137,6 +1135,8 @@ class Student {
       this.scores.push(score);
       return this.scores
 }
+
+
 calculateAverage(){
   let sum= this.scores.reduce(function(a,b) {return a+b;}) //going to go through the array and create a total
   return sum/this.scores.length;
