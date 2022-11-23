@@ -519,3 +519,91 @@ console.log(strings)
 
 
 //Dynamic Arrays- Allow us to copy and rebuild an array with a new location and more memory
+
+
+class MyArray{
+  constructor(){
+    this.length=0; //create this.length 
+    this.data={} //create this.data
+  }
+
+  get(index){ //create get(index)
+    return this.data[index] //return this.data(index)
+  }
+
+   push(item){ //push item 
+    this.data[this.length]= item; //this.data(this.length) =item 
+    this.length++ //increment counter 
+    return this.length //return this .length 
+   }
+
+   pop(){
+     const lastItem = this.data [this.length-1] //create last item = this.data and this.length-1
+     delete this.data[this.length-1]; //delete this.data[this.length-1]
+     this.length--;
+     return lastItem;
+   }
+
+   delete(index){
+    const item = this.data[index];
+    this.shiftItems(index)
+   }
+
+   shiftItems(index){
+      for(let i= index; i<this.length-1;i++)
+      { 
+        this.data[i]= this.data[i+1];
+      }
+      delete this.data[this.length-1]
+      this.length--
+   }
+}
+
+const newArray = new MyArray();
+newArray.push('Hi');
+newArray.push('you');
+newArray.push('!');
+newArray.delete(1)
+console.log(newArray)
+
+
+//Hash Tables or Hash Maps maps unodered maps dictionaries objects
+
+//Different languages have different names for it and slight variations on the hash tables
+
+//Objects for example in JS are a type of hashtable
+//these two are the most common interview questions
+
+//python called dictionaries
+//Javascript as we said are objects
+
+//Java has maps and Ruby has hashes
+//hash tables are really important all across computer science
+
+
+//You see them a lot in databases and caches and theyre extremely useful
+//Basket.grapes=10000
+//Now a way a hash table works is we have the key which is grapes
+
+//Hash Tables
+//key= Grapes
+//Index- Hash function
+
+//pass the key into a black box and do some magic and then out of it comes a key where
+//we want to store this value
+
+//What is a hash function 
+//Simply a function that generates a value of fixed length for each input that 
+
+//MD5 Hash Generator
+String: Hello
+//MD5 Hash 
+//hashes the table
+
+//give someone the hash they have no idea what the input was
+//if i put hello it is going to stay the same, but if i put hello way more times then its going to completely change the string
+
+//idempotent or independent
+//a function given an input always outputs the same
+//get really fast data access because all i have to do to find grapes or basket dot grapes is to pass grpes
+
