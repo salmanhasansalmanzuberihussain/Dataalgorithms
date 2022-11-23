@@ -580,6 +580,8 @@ console.log(newArray)
 //Java has maps and Ruby has hashes
 //hash tables are really important all across computer science
 
+//Hash Tables are a data structure that allow you to create a list of paired values.
+
 
 //You see them a lot in databases and caches and theyre extremely useful
 //Basket.grapes=10000
