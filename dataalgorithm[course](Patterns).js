@@ -1206,7 +1206,34 @@ push(val){
     this.tail.next= newNode
     this.tail=newNode;
   }
-  this.length=0
+  this.length++
   return this
 }
-}
+
+
+
+  pop(){
+    let current = this.head; //current = this.head 
+    let tail = current //tail = current 
+    while(current.next){ //while current.next 
+     tail= current //tail = current 
+     current.next= current  //current.next = current 
+    }
+   this.tail.next=current; 
+   this.tail = null; 
+    if(length===0){
+      this.head=null
+      this.tail=null
+    }
+    this.length--
+    return current;
+  }
+  }
+
+
+  //so the way this two pointer function is made
+
+  //the tail is always going to be lagging behind
+
+  //1-2-3-4-  5
+             //tail  //c
