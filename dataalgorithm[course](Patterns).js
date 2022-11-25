@@ -1,3 +1,5 @@
+const e = require("express");
+
 let array = [1, 2, [3, 4], 5, [6, 7, 8]];
 
 //option 1 the idea is to create a return
@@ -1170,24 +1172,41 @@ const p2 = new Point(10,10)
 
 //Class Method you call on the point 
 
-//How we'll be using classes
 
-class DataStructure() {
-  constructor() {
+//Singly Linked lists and how to push values to a singlylinkedlist
 
-  }
-  someInstanceMethod(){
+//---------->
+//1-2-3-4-5-6
 
+//head //1
+//tail //6
+//node
+//val 
+
+class Node{
+  constructor(val){
+    this.val = val
+    this.next=null;
   }
 }
 
-//this inside all of our instance methods and constructor, the keyword `this` refers to the
-//object created from that class(also known as instance)
+class SinglyLinkedList{
+ constructor(){
+  this.head=null;
+  this.tail=null;
+  this.length=0;
+ }
 
-
-//Classes are blueprints that when created make objects known as instances
-//Classes are created with the new keyword
-//constructor function is a special function that gets run when the class is instantiated
-//Instance methods can be added to classes similar to methods in objects
-//Class methods can be added using the static keyword
-
+push(val){
+  let newNode = new Node(val)
+  if(!this.head){
+    this.head= newNode;
+    this.tail=this.head
+  }else{
+    this.tail.next= newNode
+    this.tail=newNode;
+  }
+  this.length=0
+  return this
+}
+}
