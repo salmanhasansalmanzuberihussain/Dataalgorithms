@@ -1185,55 +1185,63 @@ const p2 = new Point(10,10)
 
 class Node{
   constructor(val){
-    this.val = val
-    this.next=null;
+    this.val = val;
+    this.next = null;
   }
 }
 
-class SinglyLinkedList{
- constructor(){
-  this.head=null;
-  this.tail=null;
-  this.length=0;
- }
-
-push(val){
-  let newNode = new Node(val)
-  if(!this.head){
-    this.head= newNode;
-    this.tail=this.head
-  }else{
-    this.tail.next= newNode
-    this.tail=newNode;
+class singlylinkedlist{
+  constructor(){
+    this.head=null
+    this.tail=null
+    this.length=0
   }
-  this.length++
-  return this
-}
 
-
+  push(val){
+    let newnode = new Node(val)
+    if(!this.head){
+      this.head= newnode
+      this.tail = this.head
+    }else{
+      this.tail.next= newnode
+      this.tail= newnode
+    }
+    this.length++
+    return newnode //I cant figure out what i gotta return do i return the node or the singly Linked list  
+  }
 
   pop(){
-    let current = this.head; //current = this.head 
-    let tail = current //tail = current 
-    while(current.next){ //while current.next 
-     tail= current //tail = current 
-     current.next= current  //current.next = current 
+    if(!this.head) return undefined
+    current = this.head 
+    let behind = current
+    while(current.next){
+     behind=current
+     current= current.next  // current and current.next 
     }
-   this.tail.next=current; 
-   this.tail = null; 
-    if(length===0){
-      this.head=null
-      this.tail=null
+    this.behind = current
+    this.behind.next = null
+
+    if(this.length ===0){
+      this.head=null;
+      this.tail=null; 
     }
     this.length--
-    return current;
+    return this
   }
-  }
+}
 
 
-  //so the way this two pointer function is made
 
-  //the tail is always going to be lagging behind
 
-  //1-2-3-4-  5
-             //tail  //c
+
+//push the value to the singlyLinkedList 
+//if there is no head
+
+
+
+//you cant access the element from the end you gotta go through the whole list
+//gotta go through 1-2-3-4-5-6-7-    8
+                                   current
+                                 val  
+//value = current
+//current.next 
