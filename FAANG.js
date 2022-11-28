@@ -612,3 +612,58 @@ String: Hello
 //Hash tables you're looking at O(1) complexity and is a hack on top of an array
 //A hash table collision is when data goes into a storage and hits the storage 1 by 1 annd goes in the same container, causing a colision.
 //There are ways to fix this but this is what a hash collision is 
+
+//Head--> Node---> Tail
+
+//there is a head there is a node and then there is a tail
+//first node is called the head and the last node is called the tail
+//linked list = null terminated means that the list is terminated
+
+//why linked list 
+//One key thing that you may have seen 
+
+//when you wanted to add the value add head and tail 
+//O of n
+
+//linked lists you start at the head and traverse the list until you get to item five, which is O of RN.
+//5-10-2
+
+//things you can use prepent O(1)
+//append O(1)
+//lookup O(n)
+//insert O(n)
+//delete O(n)
+
+
+//What is a pointer
+
+//It is a reference to another place in memory or another object or another node
+
+const obj1={a:true};
+const obj2= obj1;
+obj1.a='booya'
+delete obj1
+//it wont delete the memory because it's still in memory
+
+//pointer is a reference to an object
+console.log('1', obj1);
+console.log('2', obj2);
+
+//its simply saying where it is in memory
+
+//what is a doubly linked list its a list that goes both ways
+//5-10-2
+//searching through a doubly linked list can be more efficient
+//lookup can be technically o divided by two
+
+
+//what is the difference between singly and doubly linked list
+
+
+//singly linked list its faily easy to implement
+//less memory
+
+
+//doubly can be traversed from the front and the back
+//delete function is easier
+//fairly complex to make 
