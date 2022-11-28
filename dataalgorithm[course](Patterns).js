@@ -1185,63 +1185,81 @@ const p2 = new Point(10,10)
 
 class Node{
   constructor(val){
-    this.val = val;
-    this.next = null;
+    this.val = val
+    this.length = null
   }
 }
 
-class singlylinkedlist{
+class singlyLinkedList{
   constructor(){
-    this.head=null
-    this.tail=null
-    this.length=0
+    this.head= null;
+    this.tail=null;
+    this.length=0;
   }
 
   push(val){
     let newnode = new Node(val)
     if(!this.head){
       this.head= newnode
-      this.tail = this.head
+      this.tail= this.head
     }else{
-      this.tail.next= newnode
-      this.tail= newnode
+      this.tail.next=newnode
+      this.tail=newnode
     }
     this.length++
-    return newnode //I cant figure out what i gotta return do i return the node or the singly Linked list  
+    return newnode;
   }
 
-  pop(){
-    if(!this.head) return undefined
-    current = this.head 
-    let behind = current
-    while(current.next){
-     behind=current
-     current= current.next  // current and current.next 
-    }
-    this.behind = current
-    this.behind.next = null
 
-    if(this.length ===0){
+  pop(){ 
+    if(!this.head) return undefined //if the head is not there return undefined
+    let current = this.head //let current = this.head
+    let tailvalue = current 
+    while(current.next){ //while the current.next 
+      tailvalue = current //tailvalue = current 
+      current = current.next //current = current.next
+    }
+    this.tailvalue= current //the tail
+    this.tailvalue.next= null;
+    if(this.length===0){
       this.head=null;
-      this.tail=null; 
+      this.tail=null;
     }
+   
     this.length--
-    return this
+    return this; //returns the singly linked list!
+    }
+
+  shift(){
+    if(!this.head) return undefined
+    var currenthead = this.head;
+    this.head = currenthead.next;
+    this.length--;
+    return currenthead;
   }
+
+  unshift(val){
+      let newnode = new Node(val)
+      if(!this.head){
+        this.head= newnode;
+        this.tail = this.head
+      }else{
+          newnode.next = this.head
+       this.head=newnode
+      }
+       this.length++
+       return this
+}
+get(val){
+    if(val<0 || val>this.length) return null
+    let current = this.head 
+    let counter =0;
+    while(counter != val){
+        current = current.next
+        counter++
+    }
+    return current 
+}
 }
 
-
-
-
-
-//push the value to the singlyLinkedList 
-//if there is no head
-
-
-
-//you cant access the element from the end you gotta go through the whole list
-//gotta go through 1-2-3-4-5-6-7-    8
-                                   current
-                                 val  
-//value = current
-//current.next 
+let val = new singlyLinkedList()
