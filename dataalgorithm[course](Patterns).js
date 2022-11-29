@@ -1260,6 +1260,137 @@ get(val){
     }
     return current 
 }
+set(val,hello){
+  var foundNode = this.get(val);
+  if(foundNode){
+    foundNode.val = hello
+  }
+  return false
+}
 }
 
 let val = new singlyLinkedList()
+
+//What does the set function do
+//Updates the function
+
+
+//Insert
+//similar to set what the index does is it returns the value at a certain node
+//so basially what you do is add a node and insert it in that position and push the other values out
+
+//if the index is less than zero or greater than the length, return false
+//if the index is the same as the length, push a new node to the end of the list
+//if the index is 0, unshift a new node to the start of the list 
+class Node{
+  constructor(val){
+      this.val= val
+      this.head = null
+  }
+}
+
+class Singlylinkedlist{
+  constructor(){
+      this.head=null
+      this.tail=null
+      this.length=0
+  }
+
+  push(val){
+      let newnode = new Node(val)
+      if(!this.head){
+          this.head = newnode
+          this.tail= this.head
+      }else{
+          this.tail.next = newnode 
+          this.tail = newnode
+      }
+      this.length++
+      return newnode 
+  }
+
+  pop(){
+      if(!this.head) return null
+      let current= this.head
+      let tailvalue= current
+      while(current.next){
+          tailvalue = current
+          current = current.next
+      }
+        if(this.length===0){
+          this.head=null
+          this.tail=null
+      }
+      this.length--
+      return this
+  }
+
+  shift(){
+      if(!this.head) return null
+      let current= this.head
+      this.head= current.next
+      this.length--
+      if(this.length===0){
+          this.tail=null
+      }
+      return this
+  }
+  unshift(val){
+      let newnode = new Node(val)
+      if(!this.head){
+          this.head = newnode
+          this.tail= this.head
+      }else{
+          newnode.next = this.head
+          this.head = newnode
+      }
+      this.length++
+      return newnode 
+  }
+
+get(val){
+  if(val<0 || val>=this.length) return null
+  let current = this.head
+  let counter=0
+  while(counter !== val){
+      current = current.next
+      counter++
+  }
+    return current
+  }
+
+  set(val,index){
+      let newval = this.get(val)
+      if(newval){
+          newval.val = index
+          return true
+      }else{
+          return false
+      }
+  }
+
+  insert(index,val){
+   if(index<0 || index>=this.length) return false;
+   if(index === this.length) return this.push(val)
+   if(index=== 0) return this.unshift(val)
+   let newNode = new Node(val)
+   let prev = this.get(index-1)
+   let temp = prev.next
+   prev= newNode
+   newNode.next = temp
+   this.length++
+   return true
+  }
+
+  remove(index){
+   if(index<0 || index>=this.length) return null;
+   if(index=== 0) return this.shift()
+   if(index === this.length-1) return this.pop()
+   let prev = this.get(index-1)
+   let removed = prev.next
+   prev.next = removed.next 
+   this.length--
+   return removed
+  }
+}
+
