@@ -667,3 +667,40 @@ console.log('2', obj2);
 //doubly can be traversed from the front and the back
 //delete function is easier
 //fairly complex to make 
+
+
+//Stacks and Queues
+
+//Linear Data structures allow us to traverse
+//Go through data elements sequentially 1 by 1
+
+//In which only one data element can be directly reached
+//Stacks and Queues
+//Linear Data structures
+
+//Stacks and Queues are linear data structures go through data element sequentially 1 by 1
+//In which only one data element can be directly reached
+//And this will become more clear to you as we talk more about Stacks and Q's through the next couple videos
+
+//linear strucutres help us traverse one by one
+//in which only one data element can be directly reached
+//this will become more clear to you as we talk more about stacks and Q's throughout the next couple
+
+//implemented in similar ways. maian difference is how items get removed
+//You mainly uses stacks and Q's to run commands like push, peak and pop all of which deal exclusively with
+//only can access the first and the last element important topic in computer science
+
+//what is a stacks
+//LIFO
+//data that gets stacked on the piece of data
+//Stacks plates stacked on top of each other veritically and you can only touch
+//can only touch the top plate
+
+
+
+
+
+
+
+
+
