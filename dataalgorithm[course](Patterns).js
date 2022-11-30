@@ -1284,113 +1284,147 @@ let val = new singlyLinkedList()
 //if the index is 0, unshift a new node to the start of the list 
 class Node{
   constructor(val){
-      this.val= val
-      this.head = null
+      this.val = val
+      this.head=null
   }
 }
 
-class Singlylinkedlist{
+class SinglyLinkedlist{
   constructor(){
-      this.head=null
+      this.head = null;
       this.tail=null
       this.length=0
   }
 
   push(val){
-      let newnode = new Node(val)
-      if(!this.head){
-          this.head = newnode
+     let newnode = new Node(val)
+     if(!this.head){
+          this.head= newnode
           this.tail= this.head
       }else{
-          this.tail.next = newnode 
-          this.tail = newnode
-      }
+         this.tail.next= newnode
+         this.tail= newnode
+     }
       this.length++
-      return newnode 
+      return newnode
   }
 
   pop(){
       if(!this.head) return null
-      let current= this.head
+      let current = this.head
       let tailvalue= current
       while(current.next){
-          tailvalue = current
+          tailvalue = current 
           current = current.next
       }
-        if(this.length===0){
-          this.head=null
+      this.length--
+      this.tail = tailvalue
+      this.tail.next= null;
+      if(this.length===0){
+          this.head=null;
           this.tail=null
       }
-      this.length--
       return this
   }
 
   shift(){
       if(!this.head) return null
-      let current= this.head
-      this.head= current.next
+      let current = this.head
+      this.head = current.next
       this.length--
       if(this.length===0){
+          this.head=null;
           this.tail=null
       }
       return this
   }
-  unshift(val){
-      let newnode = new Node(val)
-      if(!this.head){
-          this.head = newnode
+
+   unshift(val){
+     let newnode = new Node(val)
+     if(!this.head){
+          this.head= newnode
           this.tail= this.head
       }else{
-          newnode.next = this.head
-          this.head = newnode
-      }
+         newnode.next= this.head
+         this.head= newnode
+     }
       this.length++
-      return newnode 
+      return newnode
   }
 
-get(val){
-  if(val<0 || val>=this.length) return null
-  let current = this.head
-  let counter=0
-  while(counter !== val){
-      current = current.next
-      counter++
-  }
-    return current
+  get(val){
+      if(val<0 || val>=this.length) return null
+      let counter =0;
+      let current=this.head
+      while(counter !==val){
+          current = current.next
+          counter++
+      }
+      return current;
   }
 
-  set(val,index){
-      let newval = this.get(val)
-      if(newval){
-          newval.val = index
+  set(index,val){ //what does the set index? it sets the index at a specific value
+      let newnode = this.get(index)
+      if(newnode){
+          newnode.val = val
           return true
       }else{
-          return false
-      }
+      return false
+    }
+  }
+insert(index,val){
+    if(index<0 || index>=this.length) return false
+    if(index===0) return this.unshift(val)
+    if(index === this.length) return this.push(val)
+    let newnode = new Node(val)
+    let prev = this.get(index-1)
+    let temp = prev.next
+    prev.next = newnode
+    newnode.next=temp
+    this.length++
+    return true
+}
+
+  
+
+remove(index){
+    if(index<0 || index>=this.length) return undefined
+    if(index===0) return this.shift()
+    if(index === this.length) return this.pop()
+    let prev = this.get(index-1)
+    let returned= prev.next
+    prev.next = returned.next
+    return returned
+} 
+
+  reverse(){
+      let node = this.head
+      this.head = this.tail
+      this.tail = node
+      let next;
+      let prev= null;
+      for(let i=0; i<this.length; i++){
+          next= node.next
+          node.next = prev
+          prev=node
+          node = next
+  }
+      return this
+
   }
 
-  insert(index,val){
-   if(index<0 || index>=this.length) return false;
-   if(index === this.length) return this.push(val)
-   if(index=== 0) return this.unshift(val)
-   let newNode = new Node(val)
-   let prev = this.get(index-1)
-   let temp = prev.next
-   prev= newNode
-   newNode.next = temp
-   this.length++
-   return true
+print(){
+   let ar =[]
+   let current = this.head
+   while(current){
+      ar.push(current.val)
+      current = current.next
   }
+  return ar;
 
-  remove(index){
-   if(index<0 || index>=this.length) return null;
-   if(index=== 0) return this.shift()
-   if(index === this.length-1) return this.pop()
-   let prev = this.get(index-1)
-   let removed = prev.next
-   prev.next = removed.next 
-   this.length--
-   return removed
   }
 }
 
+
+
+let val = new SinglyLinkedlist()
