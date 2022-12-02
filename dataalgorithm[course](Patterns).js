@@ -1428,3 +1428,98 @@ print(){
 
 
 let val = new SinglyLinkedlist()
+
+
+//Get Val
+//return null when you have the index<0 && index>=this.length return null //ALWAYS REMEMBER TO RETURN NULL
+//counter =0 
+//current = this.head
+
+//while(counter !== val) //current !== val the counter = this.head then i have to increment current, and then from there i have to add to the counter
+//once its equal then from there i gotta return the current
+
+
+//reviewing the data algorithms
+//get(val){
+//if the val <0 && val>=this.length  //cant be a negative val or the val is greater that means the index is greater
+//set a counter = 0 //i have this counter that adds the values 
+//then from there current = this.head
+//this is where it gets a bit tricky
+
+
+//Other things to remember
+//if we are inserting or setting we're going to have to use a newnode similar to push pop 
+
+//insert(index,val){ //when inserting you have to remember that you're going to be using a technique with temp that is similar to quick
+//sort that has an swap index 
+
+//var prev = this.get(index-1)
+//var temp = prev.next
+//prev.next = newnode
+//newnode.next = temp
+
+
+//if(index<0 || index>this.length) return false
+//if(index === this.length)
+
+//var newnode = new Node(val)
+//var prev = this.get(index-1);
+//var temp = prev.next
+//prev.next = newNode
+//newNode.next = temp
+
+//the difference between set and insert is set replaces that value and insert adds that value so remember that when you're coding this way
+//i can god willing //var prev = this.get(index-1) //var temp = prev.next, //prev.next = newNode //newNode.next =temp 
+
+//how am i supposed to bring previous 
+//prev = this.get 
+//var temp = prev.next
+//prev.next = newNode
+//prev.next = newnode 
+
+
+//Doubly Linked Lists
+//construct a doubly linked list
+//Compare and constrast doubly and singly linked lists
+//Implemenr basic basic operator on doubly link listed
+
+//next
+//prev
+
+//next
+//prev
+
+//next
+//prev
+
+//null
+//null
+//doubly linked lists take more memory
+
+//Node
+//--val
+//--next
+//-prev
+
+//DoublyLinkedList
+//-head
+//--tail
+//-length
+
+//the only thing added to a doubly linked list 
+
+class Node{
+   constructor(val){
+    this.val = val
+    this.next=null
+    this.prev= null; //this.prev is the only thing that is added
+   }
+}
+
+class DoublyLinkedList{
+  constructor(){
+    this.head = null;
+    this.tail = null;
+    this.length =0;
+  }
+}
