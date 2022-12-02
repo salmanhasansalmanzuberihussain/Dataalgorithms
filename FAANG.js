@@ -697,10 +697,20 @@ console.log('2', obj2);
 //can only touch the top plate
 
 
+//Queues are the opposite of stacks, queues are a first in and first out access of the item 
+//enqueue = shift
+//dequeue = unshift
+//peek what item is going to come up 
+//lookup
 
 
+//1
+//2-3-4
+//6-7
 
 
+//1 is the root
+//1 and 3 are the parent
 
-
-
+//1 points down to 
+//to 6 and 7 and thats a leaf
