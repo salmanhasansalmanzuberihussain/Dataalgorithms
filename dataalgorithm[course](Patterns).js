@@ -1522,4 +1522,20 @@ class DoublyLinkedList{
     this.tail = null;
     this.length =0;
   }
+
+  push(val){
+    let newnode = new Node(val)
+    if(this.length===0){
+      this.head = newnode
+      this.tail = this.head
+    }else{
+      this.tail.next = newnode
+      newnode.prev = this.tail //helps reverse the list
+      this.tail = newnode
+    }
+    this.length++
+    return newnode
+  }
 }
+
+
