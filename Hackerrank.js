@@ -917,3 +917,57 @@ function towerBreakers(n, m) {
       return 1
   }
 }
+
+//The absolute difference is the positive difference between two values  a
+//nd , is written  or  and they are equal. If  and , . Given an array of integers,
+//find the minimum absolute difference between any two elements in the array
+
+function minimumAbsoluteDifference(arr) {
+  let sort = arr.sort((a,b)=>a-b)
+  let min = Math.abs(arr[0]-arr[1])
+  for(let i=0; i<sort.length; i++){
+    let val = Math.abs(arr[i]- arr[i+1])
+    if(val<min){
+      min=val
+    }
+  }
+return min 
+}
+
+
+
+
+//There is a collection of input strings and a collection of query strings.
+//For each query string, determine how many times it occurs in the list of input strings.
+//Return an array of the results
+
+//strings =['ab,ab,abc]
+//queries=[ab,abc,bc]
+
+//how many tiems does the query string occur in the string
+
+//logically I have to go through the strings, then i have to go through the queries and compare the strings
+
+
+//without any code how would i approach this problem?
+//i would look at the strings =['ab,ab,abc']
+//queries = ['ab','abc','bc']
+
+//2 instances of ab, 1 of abc and 0 of bc
+
+//loop through the strings, I would store the strings. Store that data
+
+//then i would loop through the queries and store that data
+
+//and then from there what I would do is compare the values of the storage
+//why doesn't this concept work? because if i use this concept, i cant get the value of the 
+//queries of the function
+
+//i wont be able to compare the queries with the strings
+
+//the approach glitched failure used is hashmap
+
+//queries.map(query => memory[query] || 0)
+//
+
+//return queries.map()
