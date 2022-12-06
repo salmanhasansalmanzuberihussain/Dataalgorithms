@@ -19,7 +19,6 @@ function collection(input,query){
     collection[val] = (collection[val] || 0)+1
     
 return query.map(variable => (collection[variable] || 0))
-     
   }
 }
 
@@ -301,6 +300,22 @@ function lonelyinteger(a) {
 //0/2
 
 
+//Grading Students
+
+function gradingStudents(grades) {
+  let result = []
+  for(let i=0; i<grades.length; i++){
+      if(grades[i]<38 || grades[i]%5<3){  //grades is less than 38
+      //then you have grades[i]%5<3
+          result.push(grades[i])
+      }else{
+          result.push(grades[i] + 5 - (grades[i] % 5))
+  }   
+}
+return result
+}
+
+
 //Given a square matrix, calculate the absolute difference between the sums of its diagonals.
 //For example, the square matrix arr is shown below:
 
@@ -323,13 +338,14 @@ function diagonalDifference(arr) {
 //notes are in my notebook
 
 function countingSort(arr) {
-  let result = [0]*100
-  
-  for(var i=0; i<arr.length; i++){
-      result[i] ++
+  let frequencyArray = new Array(100).fill(0);
+  for(let num of arr){ //so when do i use a for of
+  //why doesnt the let num of arr work with 
+  frequencyArray[num]+=1
   }
-   return result
-}
+  return frequencyArray;
+  }
+  
 //question 
 //walking up and down the mountain q
 //Given the sequence of up and down steps during a hike, find and print the number of valleys walked through.
