@@ -85,21 +85,30 @@ var isValid = function (s) {
 // Return the head of the merged linked list.
 
 var mergeTwoLists = function (list1, list2) {
-  if (list1 === null) {
-    return list2;
+  let dummy = new ListNode(0);
+  let prev = dummy;
+
+  while (list1 && list2) {
+    if (list1.val < list2.val) {
+      prev.next = list1;
+      prev = list1;
+      list1 = list1.next;
+    } else {
+      prev.next = list2;
+      prev = list2;
+      list2 = list2.next;
+    }
   }
 
-  if (list2 === null) {
-    return list1;
+  if (list1) {
+    prev.next = list1;
   }
 
-  if (list1.val < list2.val) {
-    list1.next = mergeTwoLists(list1.next, list2);
-    return list1;
-  } else {
-    list2.next = mergeTwoLists(list2.next, list1);
-    return list2;
+  if (list2) {
+    prev.next = list2;
   }
+
+  return dummy.next;
 };
 
 //Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same.
@@ -201,6 +210,23 @@ var inorderTraversal = function (root) {
     indoor(root.right);
   }
   return res;
+};
+
+//non traversal
+var inorderTraversal = function (root) {
+  let stack = [];
+  let output = [];
+  while (stack.length || root !== null) {
+    if (root !== null) {
+      stack.push(root);
+      root = root.left;
+    } else {
+      root = stack.pop();
+      output.push(root);
+      root = root.right;
+    }
+    return output;
+  }
 };
 
 //Given the root of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).
