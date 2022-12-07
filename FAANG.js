@@ -714,3 +714,42 @@ console.log('2', obj2);
 
 //1 points down to 
 //to 6 and 7 and thats a leaf
+
+//What is O(log n)
+
+//O log(N) 
+
+//is 
+//2^1 =1
+//2^2 =4
+//2^8=8
+
+
+//if you look at a binary tree,
+//the binary tree is 
+//2-1
+//4-1
+//8-1
+
+//1
+//3
+//7
+
+//Binary Search tree really really good at searching
+//All values to the right are increasing
+
+
+            //101
+    //33          //105
+
+
+  //9 //37      //104 //144
+
+  //you can easily search by using if else statements
+  //to delete a node gotta go through it and 105
+  //check if 104 is greater than 144
+
+  //since 104 is less thn 144, //144 comes up
+  
+
+  //Tries a way to store strings into a data structure
