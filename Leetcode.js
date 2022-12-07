@@ -222,11 +222,11 @@ var inorderTraversal = function (root) {
       root = root.left;
     } else {
       root = stack.pop();
-      output.push(root);
+      output.push(root.val);
       root = root.right;
     }
-    return output;
   }
+  return output;
 };
 
 //Given the root of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).
