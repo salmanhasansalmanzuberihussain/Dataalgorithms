@@ -57,6 +57,17 @@ var longestCommonPrefix = function (strs) {
   return prefix;
 };
 
+var longestCommonPrefix = function (strs) {
+  for (let i = 0; i < strs[0].length; i++) {
+    for (let j = 1; j < strs.length; j++) {
+      if (strs[0][i] != strs[j][i]) {
+        return strs[0].slice(0, i);
+      }
+    }
+  }
+  return strs[0];
+};
+
 // //Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
 
 // An input string is valid if:
@@ -231,13 +242,17 @@ var inorderTraversal = function (root) {
 
 //Given the root of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).
 var isSymmetric = function (root) {
-  function recurse(l, r) {
-    if (!l && !r) return true;
-    if (!l || !r || l.val !== r.val) return false;
+  function helper(n1, n2) {
+    if (n1 === null && n2 === null) return true;
+    if (n2 === null || n2 === null) return false;
 
-    return recurse(l.left, r.right) && recurse(l.right, r.left);
+    if (n1.val === n2.val) {
+      return helper(n1.left, n2.right) && helper(n1.right, n1.left);
+    } else {
+      return false;
+    }
   }
-  return recurse(root.left, root.right);
+  return helper(root.left, root.right);
 };
 
 //Given the root of a binary tree, return its maximum depth.
