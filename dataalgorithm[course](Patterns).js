@@ -1510,74 +1510,99 @@ let val = new SinglyLinkedlist()
 
 class Node{
   constructor(val){
-      this.val = val;
-      this.next = null;
-      this.prev = null;
+      this.val=val
+      this.next=null
+      this.prev=null
   }
 }
 
 
-class DoublyLinkedList {
-  constructor(){
-      this.head = null;
-      this.tail = null;
-      this.length = 0;
+class DoublyLinkedList{
+   constructor(){
+      this.head= null
+      this.tail=null
+      this.length=0
   }
   push(val){
-      var newNode = new Node(val);
-      if(this.length === 0){
-          this.head = newNode;
-          this.tail = newNode;
-      } else {
-          this.tail.next = newNode;
-          newNode.prev = this.tail;
-          this.tail = newNode;
-      }
-      this.length++;
-      return this;
-  } 
-  pop(){
-      if(!this.head) return undefined;
-      var poppedNode = this.tail;
-      if(this.length === 1){
-          this.head = null;
-          this.tail = null;
-      } else {
-          this.tail = poppedNode.prev;
-          this.tail.next = null;
-          poppedNode.prev = null;
-      }
-      this.length--;
-      return poppedNode;
-  }
-  shift(){
-      if(this.length === 0) return undefined;
-      var oldHead = this.head;
-      if(this.length === 1){
-          this.head = null;
-          this.tail = null;
+  let newnode = new Node(val)
+      if(!this.head){
+          this.head = newnode
+          this.tail = this.head
       }else{
-          this.head = oldHead.next;
-          this.head.prev = null;
-          oldHead.next = null;
+          this.tail.next = newnode
+          newnode.prev = this.tail
+          this.tail = newnode
       }
-      this.length--;
-      return oldHead;
+          this.length++
+          return newnode //this can be return this
   }
- unshift(val){
-      var newnode = new Node(val);
-      if(this.length === 0){
-          this.head = newnode;
-          this.tail = newnode;
-      } else {
-          this.head.prev = newnode; //this is important
-          newnode.next = this.head
-          this.head=newnode
-      }
-      this.length++;
-      return this;
-  } 
+
+  pop(){
+  if(!this.head) return null
+  let current = this.tail
+  if(this.length===1){
+      this.head = null;
+      this.tail =null
+  }else{
+      this.tail= current.prev //this.tail = current.prev
+      current.next = null
+      this.tail.next = null
+  }
+  this.length--
+  return this
+}
+
+shift(){
+  if(!this.head) return null
+  let current = this.head
+  if(this.length===1){
+      this.head = null;
+      this.tail =null
+  }else{
+      this.head= current.next //this.tail = current.prev
+      current.prev = null
+      this.head.prev = null
+  }
+  this.length--
+  return this
+}
+
+unshift(val){
+  let newnode = new Node(val)
+  if(!this.head){
+       this.head = newnode
+       this.tail = this.head
+  }else{
+       newnode.next = this.head
+       this.head = newnode
+       this.head.prev= newnode 
+  }
+       this.length++
+       return newnode //this can be return this
+  }
+
+get(index){
+  if(index<0 || index>=this.length) return null
+  let counter, current;
+  if(index<= this.length/2){
+     let counter=0;
+     let current = this.head
+      while(counter !=index){
+      current = current.next
+      counter++
  }
+     return current
+ }else{
+      let counter=0;
+     let current = this.head
+      while(counter !=index){
+      current = current.next
+      counter++
+ }    
+}
+   return current
+}
+}
 
-var list = new DoublyLinkedList()
 
+let val = new DoublyLinkedList()
