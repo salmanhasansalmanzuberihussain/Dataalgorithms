@@ -753,3 +753,64 @@ console.log('2', obj2);
   
 
   //Tries a way to store strings into a data structure
+
+  //if you know a solution is not far from the root of the tree
+  //BFS
+
+  //if the tree is very deep and the solution is rare
+ //BFS
+
+  //if the tree is very wide
+  //DFS
+
+  //if the solutions are frequent but located deep in the tree
+  //DFS
+
+  //determining whether a path exists between two nodes
+  //DFS
+
+  //finding the shortest path
+ //BFS
+
+
+ class BinarySearchTree{
+  constructor(){
+    this.root = null
+  }
+  insert(value){
+
+  }
+  lookup(value){
+
+  }
+  remove(value){
+
+  }
+  breadthFirstSearch(){
+    let currentNode = this.root;
+    let list =[]
+    let queue =[]
+    queue.push(currentNode);
+
+    while(queue.length>0){
+      currentNode = queue.shift();
+      list.push(currentNode.value)
+      if(currentNode.left){
+        queue.push(currentNode.left);
+      }
+      if(currentNode.right){
+        queue.push(currentNode.right);
+      }
+    }
+    return list;
+  }
+
+ const tree = new BinarySearchTree();
+ tree.insert(9)
+ tree.insert(4)
+ tree.insert(6)
+ tree.insert(20)
+ tree.insert(170)
+ tree.insert(15)
+ tree.breadthFirstSearch()
+
