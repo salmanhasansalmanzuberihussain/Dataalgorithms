@@ -1,83 +1,135 @@
-What is Data Algorithms?  (1 hour) 
-Data Algorithms a set of instructions that a computer follows to perform calculations or solve problems. Organization and management of data. 
+Mastering the Coding Interview: Big Tech FAANG Interviews 
+Big O- What is good code 
+1.Readable [Similar to what i do with unguarded.com] (I keep the website in stable condition after remaking the whole website and reformatting 	to new technologies such as Vercel and such as NextJS using Meta)  
+2.Scaleable [Big O] 
  
-Big O and Scalability 
-const nemo = [‘nemo’] 
-const everyone [‘dory,’bruce’, ‘marlin’] 
-const large = new Array(100).fill(‘nemo’) -> Fill the array  
+A task where we want to bake a cake 
+Recipe[Instructions]- Kitchen- Cake 
  
-function findNemo(array){ ->Container for code 
-	let t0= performance.now(); -> Calls a date and time 
-	for(let i =0; i<array.length; i++){ -> Executes a block of code an amount of times 
-		if(array[i]===’nemo’){ 
-			console.log(‘Found NEMO!’); 
-		} 
+Computers are machines and these machines need to work in order to produce something for us 
+Coding Instructions -> Instructions given to these machines [Input] ->  Output 
+Turn on the light in our room 
+ 
+Use Replit.com to create Node.JS 
+Node.JS [JavaScript] - Open Source JavaScript run time 
+Visual Studio Code as well [Thats where I programmed UNGUARDED.com myself]  
+ 
+What is good code? 
+1.Readable 
+2.Scaleable 
+ 
+//function meaning "self-contained" modules of code that accomplish a specific task 
+ 
+const nemo = ['nemo'] //this is an array   
+const nemo =['fwfw’, ‘fwerfwef’,’g34g4g4g’,’ererfer’,’egrege’] // this is multiple elements in an array  
+ 
+function findNemo(array){ //this is a function  
+	let t0= performance.now()  //this is a performance.now() - Timecall  
+	 for(let i=0; i<array.length; i++){ //this is a for loop 
+		 if(array[i] === 'nemo'){ // so this is an if else statement (if(array[i]===’nemo’)  
+		console.log('Found NEMO!'); 
+ 	  } 
 	} 
-	let t1 = performance.now() -> -> Calls a date and time 
-	console.log(‘Call to find Nemo took ‘ + (t1-t0) + ‘ milliseconds’); 
+	let t1 = performance.now();  
+	console.log("Call to find Nemo took  " + (t1 - t0) + " milliseconds."); 
+} 
+
+findNemo(nemo); 
+ 
+What is a function 
+A function is a compiler for code to put in a self-contained module 
+for loop is a piece of data that is used to go through a loop multiple times 
+If array === ‘nemo’ then console.log (‘Found NEMO!’); 
+let t1 = performance.now() is a function that calls a timestamp of a function 
+ 
+We have to call the function findNemo(everyone); 
+ 
+const nemo [‘nemo’] 
+ 
+const large = new Array(100).fill(‘nemo’); // fill array of 100 this is what new array does 
+ 
+ 
+ 
+ 
+ 
+O(logn), O(1), O(n log n), O(n^2), O(2^n), O(n!) 
+O(1)- Constant Time 
+O(n)- Linear Time 
+ 
+ 
+const nemo = ['nemo'] //this is an array   
+const nemo =['fwfw’, ‘fwerfwef’,’g34g4g4g’,’ererfer’,’egrege’] // this is multiple elements in an array  
+ 
+function findNemo(array){  
+	let t0= performance.now()   
+	for(let i=0; i<array.length; i++){  
+		 if(array[i] === 'nemo'){  
+		console.log('Found NEMO!'); 
+ 	  } 
 	} 
+	let t1 = performance.now(); 
+}  
+	console.log("Call to find Nemo took  " + (t1 - t0) + " milliseconds."); 
 } 
  
-findNemo(large); 
  
-The more code there is, the more runtime there is. 
+O(N)- Usually one for loop  
+For Loop (for let i=0; i<array.length; i++){ 
+A "For" Loop is used to repeat a specific block of code a known number of times  
  
-Big O –Measurement to see how long it takes for code to run 
- 
- 
-Big O 
-1. O(1) - Constant Time 
-Example | function compressFirstBox(boxes) { 
-		console.log(boxes[0]) 
-	} 
- 
-Number of operations | Stay flat- Linear Time 
-(1),(2),(3) 
- 
-Big O Calculation 
-function funChallenge(input){ 
-	let a =10; O(1) 
-	a = 50+3; O(1) 
- 
-for(let i=0; i<input.length; i++){ O(n) 
-	anotherFunction(); O(n)- Since called multiple times 
-	let stranger = true; O(n)- Since going to run multiple times O(n) 
-	a++ O(n)- Since going to run multiple times O(n) 
+Function compressAllBoxes(boxes){ 
+	boxes.forEach(function(item){ 
+	           console.log(item) 
+	}); 
 } 
  
-return a; //O(1) 
+
+Const compressAllboxes = boxes  
+ 
+//Foreach loop is really similar loop  
+ 
+ 
+ 
+O(1)- Usually one for loop 
+function compressFirstBox(boxes){ 
+	console.log(boxes[0]); //O(1) 
 } 
  
-2.O(n) - 1 For Loop 
  
-O(n^2)- Quadratic- 2 For Loops 
-O(n!)- Loop for everytime 
+// findNemo(large); // O(n) --> Linear Time 
+const boxes = [0,1,2,3,4,5] 
  
-What is Good Code? 
-1.Readable- Clean Code and that is maintainable 
-2.Memory- Space Complexity  
-3.Speed- Time Complexity 
- 
-When a program executes it has two ways to remember things 
-Heap- Store variables 
-Stack- We keep track of function calls 
- 
-Tradeoff between Memory and Speed tradeoff between Time 
-Total size relative to the input and see how many new variables we’re allocating 
-TIme Complexity [How quick data can be compressed] 
-Memory Complexity [Memory complexity that measures with the boxes] 
-How much memory can it take. Say a lot of data is written, there is a chance of an overflow [Stack overflow]. How many times do I have to call data, something we’ll cover when we get into recursion.  
- 
-What causes Space Complexity 
-Adding Variables 
-Adding Data Structures- Arrays, Hash Tables,  
-Adding Function Call- an expression containing the function name followed by the function call operator() 
-Adding Allocations 
- 
-function boo(n){ 
-	for(let i=0; i<n.length; i++){ 
-		console.log(’booo’) 
-	} 
+
+Function logFirstTwoBoxes(boxes){ 
+	console.log(boxes[0]); //O(1) 
+	console.log(boxes[1]); //O(1) 
 } 
  
-boo([1,2,4,5,2,1])- O(1)
+logFirstTwoBoxes(boxes) //O(2) 
+ 
+// What is the Big O of the below function? (Hint, you may want to go line by line) 
+
+ 
+ 
+ 
+function anotherFunChallenge(input) { 
+	let a = 5; // O(1) 
+	let b = 10; // O(1) 
+	 let c = 50; // O(1) 
+	for (let i = 0; i < input; i++) { // O(n) 
+		 let x = i + 1; // O(n) 
+		 let y = i + 2; // O(n) 
+		let z = i + 3; // O(n) 
+  	} 
+
+   	 for (let j = 0; j < input; j++) { // O(n) 
+		let p = j * 2; // O(n) 
+		let q = j * 2; // O(n)  
+	 } 
+	let whoAmI = "I don't know"; // O(1) 
+ 	} 
+
+  // Big O = 4 + 7n = O(n) 
+ 
+ 
+ 
